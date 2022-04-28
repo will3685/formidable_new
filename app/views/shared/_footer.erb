@@ -1,0 +1,15 @@
+<div class="footer">
+  <div class="page-footer-log">
+
+    <%= mail_to "contact@formidable.group", target: "_blank", style: 'text-decoration: none;', class: "social-icon footer-icons" do %>
+      <i class="fas fa-envelope" id="mail"></i>
+    <% end %>
+    <% if params[:controller] == "companies" %>
+      <%= link_to notices_path(params[:company_alias]), class: "social-icon footer-icons" do %>
+        <i class="fas fa-question-circle"></i>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="footer-copyright" id="copyright">© 2022 Copyright formidable
+  </div>
+</div>
