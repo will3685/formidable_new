@@ -1,7 +1,8 @@
 <div class="container-page-modals">
     <div class="sign-modals">
-      <h2>Sign up</h2>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h2>Cadastra-se</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
@@ -17,7 +18,6 @@
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
           </div>
-      </div>
 
       <div class="form-actions sign">
         <%= f.button :submit, "Sign up" %>
