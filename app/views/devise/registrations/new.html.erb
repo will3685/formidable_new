@@ -1,5 +1,5 @@
-  <div class="col-6 bg-light p-3">
-    <div>
+<div class="container-page-modals">
+    <div class="sign-modals">
       <h2>Sign up</h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
@@ -19,14 +19,12 @@
           </div>
       </div>
 
-      <div class="form-actions btn btn-success">
+      <div class="form-actions sign">
         <%= f.button :submit, "Sign up" %>
       </div>
     <% end %>
 
     <%= render "devise/shared/links" %>
-  </div>
-  <div class="col-6">
-    
-  </div>
+    </div>
+</div>
 

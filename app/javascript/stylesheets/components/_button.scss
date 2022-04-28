@@ -21,3 +21,37 @@
   color: white;
   box-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
+
+.sign {
+  background-color: $rpurple;
+  border-radius: 10px;
+  color: black;
+  background: linear-gradient(#3D3F8F, $rpurple 30%);
+  box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 10%);
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.sign:hover {
+  background: linear-gradient(#3D3F8F, #7E80C8 30%);
+}
+
+//////
+
+.btn-second{
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 5px;
+  border: none;
+  color: white;
+  font-family: $title;
+  background-color: grey;
+  box-shadow: 0 0 3px lightgrey;
+}
+
+.btn-second:hover{
+  box-shadow: 0 0 3px grey;
+}
+
+
+

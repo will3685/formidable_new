@@ -1,8 +1,11 @@
 <div class="banner-home">
+
   <div class="home-banner-infos">
+
     <div class="home-banner-title">
       Bem vindo ao plataforma de <br>trancista.
     </div>
+
     <div class="d-flex mt-5 align-items-center">
       <div id="colored-bar">
       </div>
@@ -15,28 +18,17 @@
         </div>
       </div>
     </div>
-    <%# <div class="resonance-logo">
-      by
-      <%= image_pack_tag('logo_resonances.png') %>
-    <%# </div> %> 
-    <%# <div class="d-flex flex-column align-items-center w-100">
-      <% if params[:controller] == "companies" %>
-        <%# <div class="company-logo mb-3">
-          <% if @company.logo.attached? %>
-            <%# <%= image_tag(url_for(@company.logo)) %>
-          <%# <% end %>
-        <%# </div> %>
-      <%# <% end %> 
-
+ 
+    <div class="d-flex flex-column align-items-center w-100">
+       
       <div class="sign-buttons d-flex mt-3">
-        <% if params[:controller] == "companies" %>
-          <%= render 'charters/modal_charter' %>
-        <% else %>
-          <%= render 'charters/modal_charter_global' %>
-        <% end %>
+        <%= render 'charters/modal_charter_global' %> 
         <form action="/users/sign_in">
           <input class="button-second" type="submit" value="ENTRAR" />
         </form>
       </div>
+
+    </div>
+
   </div>
 </div>

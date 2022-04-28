@@ -1,3 +1,20 @@
+.container-page-modals {
+  background: $linear-background;
+  padding-bottom: 60px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
 .container-challenge-background {
   background: $linear-background;
 }
+
+.container-tab-content-modal {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+

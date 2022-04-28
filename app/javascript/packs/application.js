@@ -10,7 +10,7 @@ require("channels")
 
 
 // external imports
-// import "@fortawesome/fontawesome-free/css/all.css"
+import "@fortawesome/fontawesome-free/css/all.css"
 import "../stylesheets/application.scss"
 import "bootstrap";
 
@@ -20,8 +20,13 @@ import "bootstrap";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+// internal imports 
+import { displayAlert } from '../components/sweet-alert';
 
 //stimulus
 import "controllers"
+
+document.addEventListener('turbolinks:load', () => {
+  displayAlert();
+})
 
