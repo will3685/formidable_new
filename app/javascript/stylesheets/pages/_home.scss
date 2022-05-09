@@ -1,0 +1,80 @@
+
+.landing-subtitle {
+  font-family: $title;
+  color: white;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+#colored-bar {
+  width: 5px;
+  height: 50px;
+  background-color: $color-second;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#landing-subtitle-colored {
+  color: $rdark;
+}
+
+
+
+// .resonance-logo {
+//   width: 100%;
+//   display: flex;
+//   justify-content: flex-end;
+//   color: $color-second;
+//   font-size: 14px;
+//   font-family: $title;
+//   align-items: center;
+//   img {
+//     width: auto;
+//     height: 100px;
+//   }
+// }
+
+
+// .company-logo {
+//   img {
+//     height: 80px;
+//     width: auto;
+//   }
+// }
+
+.sign-buttons {
+  margin-bottom: 10%;
+}
+
+
+/////// small devices /////////////
+
+
+///// laptop
+
+@media(min-width: 768px) {
+
+}
+
+/// tablet
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+  .landing-subtitle {
+    font-size: 22px;
+  }
+
+
+  #colored-bar {
+    height: 40px;
+  }
+
+  .company-logo {
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+}

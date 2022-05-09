@@ -1,0 +1,29 @@
+.modal {
+  color: black;
+}
+
+.modal-body-charter {
+  font-size: 12px;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-footer {
+  background-color: white;
+}
+
+.sign-modals {
+  width: 50vh;
+  background-color: $rlight;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  height: 60vh;
+  margin-top: 10vh;
+}

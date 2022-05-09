@@ -1,0 +1,34 @@
+<!-- Button trigger modal -->
+<button type="button" class="button-second" data-bs-toggle="modal" data-bs-target="#modal_charter">
+  CADASTRAR
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modal_charter" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Termos de privacidade</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal-body-charter">
+        Ao clicar, você está concordando com nossas condições de privacidade: <br> <br>
+        1.  Seus dados não serão publicados a menos para fim judicial.<br>
+        2.  Seus dados são protegidos de acordo com a lei brasileira<br>
+        3.  Não pode processor a empresa por uso de dados para fim de marketing.<br>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-second" data-bs-dismiss="modal">Fechar</button>
+        <form action="/users/sign_up">
+          <input class="button-second" type="submit" value="Concordo" />
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+

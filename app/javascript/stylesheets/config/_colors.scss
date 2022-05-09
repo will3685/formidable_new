@@ -1,0 +1,70 @@
+// Define variables for your color scheme
+
+// For example:
+$red: #FD1015;
+$blue: #167FFB;
+$yellow: #FFC65A;
+$orange: #E67E22;
+$green: #1EDD88;
+$gray: #0E0000;
+$light-gray: #F4F4F4;
+
+
+
+// backgrounds
+
+$rdark: #0B0D1E;
+$rlight: #202235;
+
+$rdark-2: #0F0E38;
+$rlight-2: #3C348D;
+
+$linear-background: linear-gradient(#C5B358, #FFDF00);
+
+//buttons
+$rpurple: #7072C1;
+
+// for hovers
+$rpurplelight: #8D8ECE;
+
+// color used in tabs and comments in mindmap modal
+$tab-comment: #613EC7;
+
+
+// to highlight
+$rorange: #D46643;
+$rorangelight: #DD8469;
+$rblue: #5EC2ED;
+
+
+// colors ///////
+
+$color-primary: #D4AF37; //  gold
+$color-second: #FFD700; //  golder
+
+$softener-1: #60BFFF; //    bleu
+$softener-2: #5CF0F5; // turquoise
+$softener-3: #94F48F; // vert
+
+$enlight-1: #F9F871; // jaune
+$enlight-2: #FBB03B; // orange
+
+$alternative-1: #ED665E; // rouge
+$alternative-2: #83615E; //  marron
+
+
+// Shadows
+
+$shadow: 0 0 1px rgba(255,255,255,.5) inset;
+$shadow-hover: 0 0 2px rgba(255,255,255,.7) inset;
+$shadow-colored: 0 0 2px rgba(120, 92, 245,.5) inset;
+$shadow-colored-hover: 0 0 2px rgba(120, 92, 245,.9) inset;
+
+
+
+
+
+.highlight {
+  color: $enlight-1;
+}
+
