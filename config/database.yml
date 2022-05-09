@@ -83,7 +83,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: formidable_new_production
   username: <%= ENV['USER'] %>
   password: <%= ENV['FORMIDABLE_NEW_DATABASE_PASSWORD'] %>
