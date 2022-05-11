@@ -20,3 +20,57 @@
   line-height: 1;
 }
 
+
+///////////////// small devices
+
+
+
+
+///// laptop
+
+@media(min-width: 768px) {
+
+}
+
+/// tablet
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+  .banner-home {
+    background-position: bottom;
+  }
+
+
+  .home-banner-infos {
+    width: 50%;
+  }
+
+  .home-banner-title {
+    font-size: 30px;
+  }
+
+  .banner-home img {
+    height: auto;
+  }
+
+}
+
+
+/// smartphone
+
+@media (max-width: 576px) {
+
+  // .banner-home {
+  //   background-image: url('background.jpg');
+  // }
+
+  .home-banner-infos {
+    width: 100%;
+    padding-top: 50%;
+  }
+
+  .home-banner-title {
+    font-size: 25px;
+  }
+}
+

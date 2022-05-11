@@ -1,0 +1,24 @@
+<h5 class="center-content">Escolha o tipo do seu agendamento</h5>
+<div class="container">
+  <% Category::CATEGORIES.each do |categoria|%> 
+    <div class="features-split section m-8 has-top-divider has-bottom-divider has-bg-color invert-color">
+      <div class="features-split-inner section-inner has-top-divider has-bottom-divider">
+        <div class="split-wrap invert-mobile invert-desktop align-top">
+          <div class="split-item">
+            <div class="split-item-content center-content-mobile">
+              <div class="fw-600 tt-u mb-8"> <%= categoria[:name]%> </div>
+              <p class="m-0"><%= categoria[:description] %></p>
+              <form action="/">
+                <input class="button-second" type="submit" value="Ver Categoria" />
+              </form>
+            </div>
+            <div class="split-item-image center-content-mobile split-item-image-fill">
+              <%= image_tag ""%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
