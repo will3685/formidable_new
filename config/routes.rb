@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get ':user_id/feed', to: 'pages#feed', as: :feed
 
-  resources :salons do
-    collection do 
-      get :hairs
+  resources :categories, only: [:show] do
+    member do 
+      get :salons
     end
   end
 end

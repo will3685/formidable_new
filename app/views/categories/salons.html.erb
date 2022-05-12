@@ -1,0 +1,11 @@
+<div class="banner-home-page">
+  <% if @salons.length > 0 %>
+    <% @salons.each do |salon| %>
+      <h1><%= salon.name %></h1>
+  <% end %>
+  <% else %>  
+    <div class="container"> 
+      <h5>No salon to display</h5> 
+    </div> 
+  <% end %> 
+</div> %>
