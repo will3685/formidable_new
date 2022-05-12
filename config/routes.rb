@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :salons do
     collection do 
-      get :allthings
+      get :hairs
     end
   end
 end
