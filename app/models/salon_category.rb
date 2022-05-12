@@ -1,0 +1,2 @@
+class SalonCategory < ApplicationRecord
+end
