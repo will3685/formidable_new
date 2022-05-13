@@ -1,11 +1,7 @@
 class Api::V1::CategoriesController < ApplicationController
   before_action :find_category, only: [ :salons ]
 
-  def index
-    render json: Category.all
-  end
-
-  def show
+   def show
     render json: Category.find_by(id: params[:id])
   end
 

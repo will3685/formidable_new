@@ -1,8 +1,8 @@
 <div class="banner-home-page">
   <% if @salons.length > 0 %>
-    <div class="salon">
-      <div class="col-6">
-        <%= react_component("HelloWorld", { greeting: "Hello from react-rails."}) %>
+    <div class="salon split-item">
+      <div class="col-lg-6 col-sm-12">
+        <%= react_component("Salon") %>
       </div>
       <div class="mapa col-6">
         Mapa

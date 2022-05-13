@@ -7,6 +7,18 @@
   position: sticky;
 }
 
+.card-background {
+  background: linear-gradient(40deg, #B28228 83%, #FFDF00 99%);
+  border: 1px solid;
+  max-height: 322px;
+  display: flex;
+  margin: $split-item--padding-v__mobile * 0.5;
+}
+
+.image-card {
+  width: 50vw;
+}
+
 
 .split-wrap {
 	margin-top: -($split-item--padding-v__mobile * 0.5);
@@ -51,6 +63,10 @@
 }
 
 @include media( '<=medium' ) {
+
+  .mapa {
+    display: none;
+  }
 
 	.split-wrap {
 
@@ -103,7 +119,7 @@
 				flex-shrink: 0;
 				width: ($container--width-sm * 0.5) - $split-item-content--padding-h;
 				margin-bottom: 0;
-				margin-right: $split-item--inner-padding-h;
+				margin-right: 0;
 			}
 
 			.split-item-image {
@@ -127,7 +143,6 @@
 
 			.split-item-image {
 
-				img,
 				svg,
 				video {
 					margin-left: auto;
