@@ -2,7 +2,7 @@
   <% if @salons.length > 0 %>
     <div class="salon">
       <div class="col-6">
-          <%= render 'shared/salon' %>
+        <%= react_component("HelloWorld", { greeting: "Hello from react-rails."}) %>
       </div>
       <div class="mapa col-6">
         Mapa
@@ -13,4 +13,4 @@
       <h5>No salon to display</h5> 
     </div> 
   <% end %> 
-</div> %>
+</div> 
