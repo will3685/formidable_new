@@ -24,7 +24,7 @@
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.4.9",
     "turbolinks": "^5.2.0",
-    "webpack": "^4.46.0",
+    "webpack": "^5.0.0",
     "webpack-cli": "^3.3.12"
   },
   "version": "0.1.0",
