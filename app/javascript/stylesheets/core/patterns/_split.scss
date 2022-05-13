@@ -1,3 +1,13 @@
+.salon {
+  display: flex;
+}
+
+.mapa {
+  top: 0;
+  position: sticky;
+}
+
+
 .split-wrap {
 	margin-top: -($split-item--padding-v__mobile * 0.5);
 

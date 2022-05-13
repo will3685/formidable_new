@@ -1,2 +1,2 @@
-class SalonsController < ApplicationController
+class SalonsController < JSONAPI::ResourceController
 end
