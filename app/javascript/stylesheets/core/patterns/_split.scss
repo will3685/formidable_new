@@ -4,13 +4,13 @@
 
 .mapa {
   top: 0;
+  // position: -webkit-sticky;
   position: sticky;
 }
 
 .card-background {
   background: linear-gradient(40deg, #B28228 83%, #FFDF00 99%);
   border: 1px solid;
-  max-height: 322px;
   display: flex;
   margin: $split-item--padding-v__mobile * 0.5;
 }

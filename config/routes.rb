@@ -19,6 +19,6 @@ Rails.application.routes.draw do
     member do 
       get :salons
     end
-    resources :salons, only: [:show]
   end
+  resources :salons, only: [:show]
 end

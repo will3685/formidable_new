@@ -31,25 +31,11 @@ const Salon = ({
   ...props
 }) => {
 
-  const outerClasses = classNames(
-    'features-split section',
-    topOuterDivider && 'has-top-divider',
-    bottomOuterDivider && 'has-bottom-divider',
-    hasBgColor && 'has-bg-color',
-    invertColor && 'invert-color',
-    className
-  );
-
   const innerClasses = classNames(
     ' section-inner',
   );
 
-  const splitClasses = classNames(
-    'split-wrap',
-    invertMobile && 'invert-mobile',
-    invertDesktop && 'invert-desktop',
-    alignTop && 'align-top'
-  );
+
   const sectionHeader = {
     title: 'Seja Formidable',
     paragraph: 'Encontre o trancista na sua cidade e agenda já seu serviço.'

@@ -19,7 +19,8 @@ const defaultProps = {
   loading: false,
   wide: false,
   wideMobile: false,
-  disabled: false
+  disabled: false,
+  href: undefined
 }
 
 const Button = ({
@@ -35,7 +36,7 @@ const Button = ({
 }) => {
 
   const classes = classNames(
-    'button',
+    'button-sm',
     color && `button-${color}`,
     size && `button-${size}`,
     loading && 'is-loading',
