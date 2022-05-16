@@ -80,6 +80,6 @@ test:
 #
 production:
   url: <%= ENV['DATABASE_URL'] %>
-  database: formidable_new_production
+  database: <%= ENV['DATABASE'] %>
   username: <%= ENV['USER'] %>
   password: <%= ENV['FORMIDABLE_NEW_DATABASE_PASSWORD'] %>

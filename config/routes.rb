@@ -9,13 +9,15 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :salons, only: [:index, :show]
-      resources :categories, only: [:show] do
-        get :salons
+      resources :categories, only: [:index , :show] do
+        member do
+          get :salons
+        end
       end
     end
   end
 
-  resources :categories, only: [:show] do
+  resources :categories, only: [:index, :show] do
     member do 
       get :salons
     end

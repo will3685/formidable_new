@@ -48,7 +48,7 @@ const Salon = ({
     .then( res => {
       setSalons(res.data)
     })
-    .catch( res => console.log(res))
+    .catch( res => console.log(res.data))
   }, [salons.length])
 
   const grid = salons.map(item => {

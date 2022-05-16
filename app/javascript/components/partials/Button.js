@@ -36,7 +36,7 @@ const Button = ({
 }) => {
 
   const classes = classNames(
-    'button-sm',
+    'button',
     color && `button-${color}`,
     size && `button-${size}`,
     loading && 'is-loading',
