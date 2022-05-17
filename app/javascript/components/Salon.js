@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import classNames from 'classnames';
+import PropTypes from "prop-types"
 import { SectionSplitProps } from "./utils/SectionProps";
 
 
@@ -15,8 +16,8 @@ const defaultProps = {
   ...SectionSplitProps.defaults
 }
 
-
-const Salon = ({
+const Salon = (
+  {
   className,
   topOuterDivider,
   bottomOuterDivider,
@@ -29,7 +30,8 @@ const Salon = ({
   alignTop,
   imageFill,
   ...props
-}) => {
+}
+) => {
 
   const innerClasses = classNames(
     ' section-inner',
@@ -44,12 +46,13 @@ const Salon = ({
   const [ salons, setSalons ] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/v1/salons')
-    .then( res => {
+    const url = `/api/v1${props.url}`
+    axios.get(url)
+    .then(res => {
       setSalons(res.data)
     })
-    .catch( res => console.log(res.data))
-  }, [salons.length])
+    .catch( res => console.log(res))
+  }, [salons.length]);
 
   const grid = salons.map(item => {
     return (
@@ -77,5 +80,9 @@ const Salon = ({
 
 Salon.propTypes = propTypes;
 Salon.defaultProps = defaultProps;
+
+Salon.propTypes = {
+  url: PropTypes.string
+};
   
 export default Salon;

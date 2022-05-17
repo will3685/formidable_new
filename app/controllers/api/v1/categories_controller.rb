@@ -1,4 +1,5 @@
 class Api::V1::CategoriesController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :find_category, only: [ :salons ]
   
   def index
@@ -10,7 +11,8 @@ class Api::V1::CategoriesController < ApplicationController
   end
 
   def salons
-    render json: @category.salons
+    salons = @category.salons
+    render json: salons
   end
 
   private

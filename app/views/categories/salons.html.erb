@@ -2,7 +2,7 @@
   <% if @salons.length > 0 %>
     <div class="salon split-item">
       <div class="col-lg-6 col-sm-12">
-        <%= react_component("Salon") %>
+        <%= react_component("Salon", { url: @url}) %>
       </div>
       <div class="mapa col-6">
         Mapa
