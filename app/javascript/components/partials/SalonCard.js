@@ -17,11 +17,12 @@ const SalonCard = (props) => {
           <div className="p-2">
             <h3 className="m-0 ">{props.data.name}</h3> 
             <p className="mb-0">O melhor canto da sua beleza. Entrar e aproveita a melhor estilista e maquiadora.</p>
-            <Button
+            <a href={`/salons/${props.data.id}`}>Ver Salao</a>
+            {/* <Button
               tag="a"
               href={`/salons/${props.data.id}`}
               className="button-rdark"
-            >Ver Salão</Button>
+            >Ver Salão</Button> */}
           </div>
         </div>
   )
