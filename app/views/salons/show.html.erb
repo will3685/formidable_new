@@ -5,41 +5,36 @@
         <h1><%=  @salon.name %></h1>
         <h5>5.0 <span>⭐</span> (8 avaliação)</h5>
         <h5>Todos os serviços</h5>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-            Box Braids
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li>
-              <p>Large Box Braids $180.00</p>
-              <p>Braid stop at the waist, for additional length please select add-on</p>
-              <p>Hair included in price.</p>
-              <button>Agendar serviço</button>
-            </li>
-          </ul>
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-            Box Braids
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li>
-              <p>Large Box Braids $180.00</p>
-              <p>Braid stop at the waist, for additional length please select add-on</p>
-              <p>Hair included in price.</p>
-              <button>Agendar serviço</button>
-            </li>
-          </ul>
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-            Box Braids
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li>
-              <p>Large Box Braids $180.00</p>
-              <p>Braid stop at the waist, for additional length please select add-on</p>
-              <p>Hair included in price.</p>
-              <button>Agendar serviço</button>
-            </li>
-          </ul>
-        </div>
+        <% @servicos.uniq.each_with_index do |servico, index|  %>
+        
+          <div class="dropdown mb-2">
+            <button class="btn btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= servico.name %>
+            </button>
+            <% category = [] %>
+            <% category << Categoryservico.where(servico_id: index+1) %>
+            <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenu2">
+              <% category.each_with_index do |item, index|%>
+                 <% item.each do |category| %>
+                    <li>
+                      <div class="salon">
+                        <div class="col-8">
+                          <p> <%= category.name %></p>
+                          <p><%= category.description %></p>
+                          <p><%= category.price %> </p> 
+                        </div>
+                        <div class="col-4">
+                          <button>Agendar serviço</button>
+                        </div>
+                      </div>
+                    </li>
+                  <% end %>
+              <% end %>
+            </ul>
+          </div>
+
+        <% end %>
+
         <h5>Avaliação dos nossos clientes</h5>
         <div>5.0 ⭐⭐⭐⭐⭐</div>
         <div>serviço nota 10</div>

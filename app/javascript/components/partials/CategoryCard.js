@@ -31,8 +31,8 @@ const CategoryCard = (props, imageFill) => {
         <Image
           src={props.attributes.url}
           alt="Category image"
-          width={528}
-          height={396} />
+          width={285}
+          height={322} />
         </div>
     </div>
   )
