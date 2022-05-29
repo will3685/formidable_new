@@ -5,14 +5,14 @@
         <h1><%=  @salon.name %></h1>
         <h5>5.0 <span>⭐</span> (8 avaliação)</h5>
         <h5>Todos os serviços</h5>
-        <% @servicos.uniq.each_with_index do |servico, index|  %>
+        <% @servicos.uniq.each_with_index do |servico|  %>
         
           <div class="dropdown mb-2">
             <button class="btn btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
               <%= servico.name %>
             </button>
             <% category = [] %>
-            <% category << Categoryservico.where(servico_id: index+1) %>
+            <% category << Categoryservico.where(salon_id: @salon.id) %>
             <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenu2">
               <% category.each_with_index do |item, index|%>
                  <% item.each do |category| %>
@@ -24,7 +24,7 @@
                           <p><%= category.price %> </p> 
                         </div>
                         <div class="col-4">
-                          <button>Agendar serviço</button>
+                          <a href= <%= "/#{category.id}/agendamentos/new" %> >Agendar serviço</a>
                         </div>
                       </div>
                     </li>

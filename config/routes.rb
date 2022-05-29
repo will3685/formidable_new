@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get ':user_id/feed', to: 'pages#feed', as: :feed
+  get ':categoriaservico_id/agendamentos/new', to: 'agendamentos#new', as: :new
 
   # api routes 
   namespace :api do
@@ -23,4 +24,5 @@ Rails.application.routes.draw do
     end
   end
   resources :salons, only: [:show]
+  resources :agendamentos, only: [:create, :index]
 end

@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_17_182928) do
+ActiveRecord::Schema.define(version: 2022_05_29_045117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agendamentos", force: :cascade do |t|
+    t.datetime "scheduled_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "salon_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "categoryservico_id", null: false
+    t.index ["categoryservico_id"], name: "index_agendamentos_on_categoryservico_id"
+    t.index ["salon_id"], name: "index_agendamentos_on_salon_id"
+    t.index ["user_id"], name: "index_agendamentos_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -68,6 +80,9 @@ ActiveRecord::Schema.define(version: 2022_05_17_182928) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "agendamentos", "categoryservicos"
+  add_foreign_key "agendamentos", "salons"
+  add_foreign_key "agendamentos", "users"
   add_foreign_key "categoryservicos", "salons"
   add_foreign_key "categoryservicos", "servicos"
   add_foreign_key "salon_categories", "categories"
