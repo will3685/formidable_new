@@ -5,30 +5,28 @@
         <h1><%=  @salon.name %></h1>
         <h5>5.0 <span>⭐</span> (8 avaliação)</h5>
         <h5>Todos os serviços</h5>
-        <% @servicos.uniq.each_with_index do |servico|  %>
+        <% @servicos.uniq.each do |servico|  %>
         
           <div class="dropdown mb-2">
             <button class="btn btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
               <%= servico.name %>
             </button>
-            <% category = [] %>
-            <% category << Categoryservico.where(salon_id: @salon.id) %>
             <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenu2">
-              <% category.each_with_index do |item, index|%>
-                 <% item.each do |category| %>
-                    <li>
-                      <div class="salon">
-                        <div class="col-8">
-                          <p> <%= category.name %></p>
-                          <p><%= category.description %></p>
-                          <p><%= category.price %> </p> 
-                        </div>
-                        <div class="col-4">
-                          <a href= <%= "/#{category.id}/agendamentos/new" %> >Agendar serviço</a>
-                        </div>
+              <% Categoryservico.where(salon_id: @salon.id, servico_id: servico.id).each do |category|%>
+                <li>
+                  <div class="salon">
+                    <div class="col-8">
+                      <p> <%= category.name %></p>
+                      <p><%= category.description %></p>
+                      <p><%= category.price %> </p> 
+                    </div>
+                    <div class="col-4 ">
+                      <div>
+                        <%= link_to "Agendar Servico", new_categoryservico_agendamento_path(category.id) %>
                       </div>
-                    </li>
-                  <% end %>
+                    </div>
+                  </div>
+                </li>
               <% end %>
             </ul>
           </div>

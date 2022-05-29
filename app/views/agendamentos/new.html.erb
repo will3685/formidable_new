@@ -4,20 +4,20 @@
       <div>
         <div><%=  @salon.name%> </div>
         <div>Servico:</div>
-        <div><%= @servico.name %></div>
-        <div><%= @servico.description %></div>
+        <div><%= @categoryservico.name %></div>
+        <div><%= @categoryservico.description %></div>
       </div>
       <div>
         <div>A partir de:</div>
-        <div><%= @servico.price%></div>
+        <div><%= @categoryservico.price%></div>
       </div>
     </div>
 
-    <%= simple_form_for [ @agendamento ] do |f| %>
+    <%= simple_form_for [ @categoryservico, @agendamento ] do |f| %>
       <%= f.input :scheduled_time %>
       <%= f.hidden_field :salon_id, value: @salon.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
-       <%= f.hidden_field :categoryservico_id, value: @servico.id %>
+       <%= f.hidden_field :categoryservico_id, value: @categoryservico.id %>
       <%= f.submit "Agendar seu serviço", class: "btn btn-primary"%>
     <% end %>
   </div>

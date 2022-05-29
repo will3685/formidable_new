@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import SectionHeader from "./partials/SectionHeader";
 
 class Header extends React.Component {
-
   render() {
     const sectionHeader = {
       title: `Bem Vindo ${this.props.nome},`,

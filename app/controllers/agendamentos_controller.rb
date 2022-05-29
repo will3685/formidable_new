@@ -1,5 +1,6 @@
 class AgendamentosController < ApplicationController
-  before_action :find_servico, :find_salon,  only: [ :new, :create ]
+  before_action :find_servico, :find_salon, :find_user_agendamento, only: [ :new, :create]
+  before_action :find_user_agendamento, only: :index
 
   def new
     @agendamento = Agendamento.new
@@ -16,14 +17,21 @@ class AgendamentosController < ApplicationController
     end
   end
 
+  def index
+  end
+
   private
 
+  def find_user_agendamento
+    @agendamentos = Agendamento.where(user_id: current_user.id)
+  end
+
   def find_servico
-    @servico = Categoryservico.find_by(params[:id])
+    @categoryservico = Categoryservico.find(params[:categoryservico_id])
   end
 
   def find_salon
-    @salon = Salon.find_by(id: @servico.salon_id)
+    @salon = Salon.find(@categoryservico.salon_id)
   end
 
   def agendamento_params

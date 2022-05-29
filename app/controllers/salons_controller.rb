@@ -1,6 +1,6 @@
 class SalonsController < ApplicationController
   before_action :find_salon,  only: [ :show ]
-  def show
+  def show 
     @servicos = @salon.servicos
   end
 

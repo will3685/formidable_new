@@ -1,0 +1,19 @@
+<div class="banner-home-page">
+  <% if @agendamentos.length > 0 %>
+    <div class="container">
+      <h5>Você possui (<%= @agendamentos.length %>) agendamento(s)</h5>
+      <% @agendamentos.each do |agendamento|%>
+        <div class="card-agendamento">
+          <div>Agendamento de <%= agendamento.categoryservico.name %></div>
+          <div>com a trancista do <%= agendamento.salon.name %></div>
+          <div>Valor: <%= agendamento.categoryservico.price %> </div>
+          <div><%= agendamento.scheduled_time %></div>
+         </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="container"> 
+      <h5>Você não possui nenhum agendamento.</h5> 
+    </div> 
+  <% end %>
+</div>
