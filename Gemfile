@@ -27,6 +27,9 @@ gem 'redis', '~> 4.0'
 # Calendar render 
 gem "simple_calendar", "~> 2.4"
 
+# Geocoder 
+gem "geocoder"
+
 # React in rails
 gem 'react-rails'
 # Use Active Storage variant

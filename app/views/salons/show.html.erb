@@ -52,11 +52,14 @@ Informamos que a tolerância máxima para atrasos de clientes é de 5(cinco) min
 
         </div>
       </div>
-      <div class="col-lg-4">
-        <div>Mapa estatica</div>
+      <div class="col-lg-4 pt-12">
+        <div style="width: 100%; height: 300px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
         <p>Avenida Rebouças, 3970, LJ 1013, Pinheiros, São Paulo, SP - 05402-600</p>
         <p>Redes sociais</p>
-      </div>
     </div>
   </div>
 </div>
