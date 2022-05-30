@@ -30,6 +30,9 @@ gem "simple_calendar", "~> 2.4"
 # Geocoder 
 gem "geocoder"
 
+# Cloudinary token 
+gem 'dotenv-rails', groups: [:development, :test]
+
 # React in rails
 gem 'react-rails'
 # Use Active Storage variant
