@@ -31,10 +31,11 @@ gem "simple_calendar", "~> 2.4"
 gem "geocoder"
 
 # Cloudinary token 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.23.0'
 
 # React in rails
 gem 'react-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

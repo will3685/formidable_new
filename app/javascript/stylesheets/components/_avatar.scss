@@ -1,0 +1,53 @@
+.small-avatar-colored-default {
+  height: 45px;
+  width: 40px;
+  // background-image: url('~avatar-default.png');
+  border-radius: 50%;
+  background-size: cover;
+  border: $color-primary 3px solid;
+
+  img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+  }
+}
+
+.small-avatar-colored {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-size: cover;
+  border: $color-primary 3px solid;
+
+  img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+  }
+}
+
+
+.avatar {
+  width: 50px;
+  border-radius: 50%;
+  border: $color-primary 3px solid;
+  
+}
+.avatar-large {
+  width: 56px;
+  border-radius: 50%;
+}
+.avatar-bordered {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+.avatar-square {
+  width: 40px;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+

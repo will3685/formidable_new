@@ -20,6 +20,7 @@ import "bootstrap";
 //
 const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
+
 // internal imports 
 import { displayAlert } from '../components/sweet-alert';
 
