@@ -8,9 +8,6 @@ class SalonsController < ApplicationController
 
   def index
     @salons = Salon.where(user_id: @user.id)
-    @salons.each do |salon|
-      p salon
-    end
   end
 
   def create
