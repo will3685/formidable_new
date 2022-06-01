@@ -9,9 +9,15 @@
       <%= f.input :address, 
           label: 'Endereço do salão', 
           required: true,
-          hint: '48, Rua Augusto Perreira, Rio de Janeiro, Rio de Janeiro' %>
-          
-      <%= f.submit "Agendar seu serviço", class: "btn btn-primary"%>
+          hint: '48, Rua Augusto Perreira, Madureira, Rio de Janeiro' %>
+      <%= f.input :photo, 
+          label: 'Insira a foto de perfil do seu salão',
+          required: false,
+          as: :file,
+          hint: "Salão pode ser cadastrado sem foto" %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+
+      <%= f.submit "cadastre seu salão", class: "btn btn-primary"%>
     <% end %>
   </div>
 </div>

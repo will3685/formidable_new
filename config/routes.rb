@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users do
-    resources :salons, only: [:new, :create]
+    resources :salons, only: [:new, :create, :edit, :index]
   end
 
   resources :salons, only: [:show]

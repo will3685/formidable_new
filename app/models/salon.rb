@@ -4,7 +4,10 @@ class Salon < ApplicationRecord
   has_many :salon_categories
   has_many :categoryservicos
   has_many :agendamentos
+  has_one_attached :photo
+  has_many_attached :photos
   belongs_to :user
+  validates :name, uniqueness: { scope: :user_id }
 
 
   has_many :categories, through: :salon_categories
