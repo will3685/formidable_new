@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_132420) do
+ActiveRecord::Schema.define(version: 2022_06_01_162326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 2022_06_01_132420) do
     t.string "address", null: false
     t.float "latitude"
     t.float "longitude"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_salons_on_user_id"
   end
 
   create_table "servicos", force: :cascade do |t|
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_132420) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_name", null: false
+    t.boolean "has_salon", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -109,4 +112,5 @@ ActiveRecord::Schema.define(version: 2022_06_01_132420) do
   add_foreign_key "categoryservicos", "servicos"
   add_foreign_key "salon_categories", "categories"
   add_foreign_key "salon_categories", "salons"
+  add_foreign_key "salons", "users"
 end

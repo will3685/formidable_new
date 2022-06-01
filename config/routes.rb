@@ -22,7 +22,12 @@ Rails.application.routes.draw do
       get :salons
     end
   end
-  resources :salons, only: [:new, :create, :show]
+  resources :users do
+    resources :salons, only: [:new, :create]
+  end
+
+  resources :salons, only: [:show]
+  
   resources :categoryservicos do
     resources :agendamentos, only: [:new , :create]
   end

@@ -1,1 +1,17 @@
-<div class="banner-home-page"></div>
+<div class="banner-home-page">
+  <div class="container">
+    <h1>Obrigado pela confiança</h1>
+    <h5>Vamos cadastrar seu salão</h5>
+     <%= simple_form_for [ @user, @salon ] do |f| %>
+      <%= f.input :name,
+          label: 'O nome do salão',
+          required: true %>
+      <%= f.input :address, 
+          label: 'Endereço do salão', 
+          required: true,
+          hint: '48, Rua Augusto Perreira, Rio de Janeiro, Rio de Janeiro' %>
+          
+      <%= f.submit "Agendar seu serviço", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

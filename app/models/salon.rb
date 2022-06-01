@@ -4,6 +4,7 @@ class Salon < ApplicationRecord
   has_many :salon_categories
   has_many :categoryservicos
   has_many :agendamentos
+  belongs_to :user
 
 
   has_many :categories, through: :salon_categories
