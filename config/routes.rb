@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  # get 'category_feeds/feed'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get ':user_id/feed', to: 'pages#feed', as: :feed
-  # get ':categoriaservico_id/agendamentos/new', to: 'agendamentos#new', as: :new
+  get ':user_id/agendamentos', to: 'agendamentos#index', as: :agendamento
 
   # api routes 
   namespace :api do
@@ -23,11 +22,8 @@ Rails.application.routes.draw do
       get :salons
     end
   end
-  resources :salons, only: [:show]
+  resources :salons, only: [:new, :create, :show]
   resources :categoryservicos do
-    resources :agendamentos, only: [:create, :new]
-  end
-  resources :user do
-    resources :agendamentos, only: :index
+    resources :agendamentos, only: [:new , :create]
   end
 end

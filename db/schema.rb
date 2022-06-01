@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_195429) do
+ActiveRecord::Schema.define(version: 2022_06_01_132420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +40,9 @@ ActiveRecord::Schema.define(version: 2022_05_30_195429) do
     t.datetime "scheduled_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "salon_id", null: false
     t.bigint "user_id", null: false
     t.bigint "categoryservico_id", null: false
     t.index ["categoryservico_id"], name: "index_agendamentos_on_categoryservico_id"
-    t.index ["salon_id"], name: "index_agendamentos_on_salon_id"
     t.index ["user_id"], name: "index_agendamentos_on_user_id"
   end
 
@@ -106,7 +104,6 @@ ActiveRecord::Schema.define(version: 2022_05_30_195429) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "agendamentos", "categoryservicos"
-  add_foreign_key "agendamentos", "salons"
   add_foreign_key "agendamentos", "users"
   add_foreign_key "categoryservicos", "salons"
   add_foreign_key "categoryservicos", "servicos"

@@ -1,8 +1,11 @@
 class SalonsController < ApplicationController
   before_action :find_salon,  only: [ :show ]
+  
+  def new
+  end
+
   def show 
     @servicos = @salon.servicos
-    
       marker = { 
         lat: @salon.latitude, 
         lng: @salon.longitude,

@@ -5,7 +5,7 @@
       <% @agendamentos.each do |agendamento|%>
         <div class="card-agendamento">
           <div>Agendamento de <%= agendamento.categoryservico.name %></div>
-          <div>com a trancista do <%= agendamento.salon.name %></div>
+          <div>com a trancista do <%= agendamento.categoryservico.salon.name %></div>
           <div>Valor: <%= agendamento.categoryservico.price %> </div>
           <div><%= agendamento.scheduled_time %></div>
          </div>
