@@ -1,0 +1,13 @@
+<div class = "banner-home-page">
+  <div class="container">
+      <h5>Você possui (<%= @salons.length %>) salon(s) cadastrado(s)</h5>
+      <% @salons.each do |salon|%>
+        <div class="card-agendamento">
+          <div><%= salon.name %></div>
+        </div>
+      <% end %>
+    <div>
+      <%= link_to "Cadastrar novos negocios", new_user_salon_path, class: "nav-link" %>
+    </div>
+  </div>
+</div>

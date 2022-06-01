@@ -1,22 +1,28 @@
 class SalonsController < ApplicationController
   before_action :find_salon,  only: [ :show ]
-  before_action :find_user, only: [ :new, :create]
+  before_action :find_user, only: [ :new, :create, :index]
   
   def new
     @salon = Salon.new
   end
 
+  def index
+    @salons = Salon.where(user_id: @user.id)
+    @salons.each do |salon|
+      p salon
+    end
+  end
+
   def create
     @salon = Salon.new(salon_params)
     @salon.save
-    @user.has_salon = true
-    @user.save
-    # if @agendamento.save
-    #   @user.has_salon? 
-    #  redirect_to salon_path(@categoryservico.salon), notice: "Agendamento realizado com sucesso"
-    # else
-    #   redirect_to new_categoryservico_agendamento_path(@categoryservico.id), notice: "Seu agendamento não foi realizado"
-    # end
+    if @salon.save
+      @user.has_salon = true
+      @user.save
+     redirect_to user_salons_path, notice: "Seu negocio foi cadastrado com sucesso"
+    else
+      redirect_to new_user_salon_path, notice: "Houve um erro no cadastro do seu negocio"
+    end
   end
 
   def show 
