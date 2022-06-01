@@ -10,6 +10,9 @@ class SalonsController < ApplicationController
     @salons = Salon.where(user_id: @user.id)
   end
 
+  def edit
+  end
+
   def create
     @salon = Salon.new(salon_params)
     @salon.save
