@@ -2,8 +2,14 @@
   <div class="container">
       <h5>Você possui (<%= @salons.length %>) salon(s) cadastrado(s)</h5>
       <% @salons.each do |salon|%>
-        <div class="card-agendamento">
-          <div><%= salon.name %></div>
+        <div class="card-agendamento d-flex justify-content-between">
+          <div>
+            <div><%= salon.name %></div>
+            <div><%= salon.description %></div>
+          </div>
+          <div>
+            <%= link_to "Edit Salon", '/', class: "nav-link" %>
+          </div>
         </div>
       <% end %>
     <div>

@@ -16,7 +16,7 @@
           </li>
            <li class="nav-item active">
             <% if current_user.has_salon? %>
-              <%= link_to "Meus negocios", user_salons_path, class: "nav-link" %>
+              <%= link_to "Meus negocios", user_salons_path(current_user.id), class: "nav-link" %>
             <% else %>
               <%= link_to "Quero cadastrar meu negocio", new_user_salon_path(current_user.id), class: "nav-link" %>
             <% end %>
