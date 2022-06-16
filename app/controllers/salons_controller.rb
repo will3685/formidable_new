@@ -1,5 +1,5 @@
 class SalonsController < ApplicationController
-  before_action :find_salon,  only: [ :show ]
+  before_action :find_salon,  only: [ :show, :edit ]
   before_action :find_user, only: [ :new, :create, :index]
   
   def new
@@ -13,13 +13,17 @@ class SalonsController < ApplicationController
   def edit
   end
 
+  def update
+  end
+
   def create
     @salon = Salon.new(salon_params)
     @salon.save
     if @salon.save
       @user.has_salon = true
       @user.save
-     redirect_to user_salons_path, notice: "Seu negocio foi cadastrado com sucesso"
+      redirect_to  new_salon_salon_category_path(@salon.id)
+    #  redirect_to user_salons_path, notice: "Seu negocio foi cadastrado com sucesso, é preciso editá-lo com os serviços"
     else
       redirect_to new_user_salon_path, notice: "Houve um erro no cadastro do seu negocio"
     end
@@ -47,6 +51,6 @@ class SalonsController < ApplicationController
   end
 
   def salon_params
-    params.require(:salon).permit(:name, :address, :photos, :user_id)
+    params.require(:salon).permit(:name, :address, :description, :photos, :user_id)
   end
 end

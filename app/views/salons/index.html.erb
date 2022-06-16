@@ -7,8 +7,8 @@
             <div><%= salon.name %></div>
             <div><%= salon.description %></div>
           </div>
-          <div>
-            <%= link_to "Edit Salon", edit_user_salon_path, class: "nav-link" %>
+          <div class="d-flex">
+            <%= link_to "Edit Salon", edit_salon_path(id: salon.id), class: "nav-link" %>
           </div>
         </div>
       <% end %>

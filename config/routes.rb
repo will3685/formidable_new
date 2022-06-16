@@ -17,16 +17,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: [:index, :show] do
+  resources :categories, only: [:index, :show, ] do
     member do 
       get :salons
     end
   end
   resources :users do
-    resources :salons, only: [:new, :create, :edit, :index]
+    resources :salons
   end
 
-  resources :salons, only: [:show]
+  resources :salons do
+    resources :salon_categories, only: [:new , :create]
+  end
   
   resources :categoryservicos do
     resources :agendamentos, only: [:new , :create]
