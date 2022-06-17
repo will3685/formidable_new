@@ -27,10 +27,11 @@ Rails.application.routes.draw do
   end
 
   resources :salons do
-    resources :salon_categories, only: [:new , :create]
+    resources :salon_categories, only: [:new , :create, :destroy]
+    resources :category_servicos, only: [:new, :create, :destroy]
   end
   
-  resources :categoryservicos do
+  resources :category_servicos do
     resources :agendamentos, only: [:new , :create]
   end
 end

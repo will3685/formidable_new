@@ -1,5 +1,5 @@
 class SalonsController < ApplicationController
-  before_action :find_salon,  only: [ :show, :edit ]
+  before_action :find_salon , only: %i[ show edit update destroy ]
   before_action :find_user, only: [ :new, :create, :index]
   
   def new
@@ -14,16 +14,19 @@ class SalonsController < ApplicationController
   end
 
   def update
+    if @salon.update(salon_params)
+      redirect_to user_salons_path(current_user.id), notice: "Salons was successfully updated."
+    else
+      redirect_to edit_salon_path(id: salon.id), notice: "Unsucessful updated."
+    end
   end
 
   def create
     @salon = Salon.new(salon_params)
-    @salon.save
     if @salon.save
       @user.has_salon = true
       @user.save
       redirect_to  new_salon_salon_category_path(@salon.id)
-    #  redirect_to user_salons_path, notice: "Seu negocio foi cadastrado com sucesso, é preciso editá-lo com os serviços"
     else
       redirect_to new_user_salon_path, notice: "Houve um erro no cadastro do seu negocio"
     end

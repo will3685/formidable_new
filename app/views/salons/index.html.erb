@@ -1,16 +1,22 @@
 <div class = "banner-home-page">
   <div class="container">
-      <h5>Você possui (<%= @salons.length %>) salon(s) cadastrado(s)</h5>
+      <h5>You have (<%= @salons.length %>) salon(s) registered</h5>
       <% @salons.each do |salon|%>
-        <div class="card-agendamento d-flex justify-content-between">
-          <div>
-            <div><%= salon.name %></div>
-            <div><%= salon.description %></div>
+        <div class="card-agendamento">
+          <div class="d-flex justify-content-between">
+            <div>
+              <div><%= salon.name %></div>
+              <div><%= salon.description %></div>
+            </div>
+            <div class="d-flex">
+              <%= link_to "Edit Salon", edit_salon_path(id: salon.id), class: "nav-link" %>
+              <%= link_to "Edit Serviços", edit_salon_path(id: salon.id), class: "nav-link" %>
+            </div>
           </div>
-          <div class="d-flex">
-            <%= link_to "Edit Salon", edit_salon_path(id: salon.id), class: "nav-link" %>
-          </div>
+          <%= link_to "Add new Categories", new_salon_salon_category_path(salon_id: salon.id), class: "nav-link" %>
+        <%= link_to "Add new services", new_salon_category_servico_path(salon_id: salon.id), class: "nav-link" %>
         </div>
+        
       <% end %>
     <div>
       <%= link_to "Cadastrar novos negocios", new_user_salon_path, class: "nav-link" %>

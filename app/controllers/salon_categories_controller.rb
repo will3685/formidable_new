@@ -10,9 +10,10 @@ class SalonCategoriesController < ApplicationController
     @saloncategory = SalonCategory.new(salon_category_params)
     @saloncategory.save
     if @saloncategory.save
-      redirect_to user_salons_path(current_user.id)
+      # redirect_to user_salons_path(current_user.id)
+      redirect_to new_salon_category_servico_path(@salon.id), notice: "Category save successfully"
     else
-      redirect_to new_salon_salon_category_path
+      redirect_to new_salon_salon_category_path, notice: "Something goes wrong try again"
     end
   end
 

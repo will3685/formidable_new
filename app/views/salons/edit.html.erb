@@ -1,8 +1,26 @@
 <div class="banner-home-page">
   <div class="container">
-    <h5>Selecione a(s) categoria(s) oferecida(s) pelo salão</h5>
-      <%= simple_form_for [ @salon ] do |f| %>
-    
+    <h5>Edit Salon</h5>
+    <%= simple_form_for [ @salon ] do |f| %>
+      <%= f.input :name, 
+        required: false,
+        hint: "Deseja alterar o nome do salão?" %>
+      <%= f.input :description, 
+        required: false,
+        hint: "Deseja alterar o nome do salão?" %>
+      <%= f.input :address, 
+          label: 'Endereço do salão', 
+          required: true,
+          hint: '48, Rua Augusto Perreira, Madureira, Rio de Janeiro' %>
+      <%= f.input :photo, 
+          label: 'Insira a foto de perfil do seu salão',
+          required: false,
+          as: :file,
+          hint: "Salão pode ser cadastrado sem foto" %>
+      <div class="d-flex justify-content-around">
+        <%= f.submit "Update Salon", class: "btn btn-primary"%>
+        <%= link_to "Cancel", user_salons_path(current_user.id), class: "btn btn-primary" %>
+      </div>
     <% end %>
   </div>
 </div>

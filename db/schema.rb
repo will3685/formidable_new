@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_184051) do
+ActiveRecord::Schema.define(version: 2022_06_17_014306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,16 +53,16 @@ ActiveRecord::Schema.define(version: 2022_06_01_184051) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categoryservicos", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.decimal "price"
+  create_table "category_servicos", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "servico_id", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.decimal "price", precision: 8, scale: 2, null: false
     t.bigint "salon_id", null: false
-    t.index ["salon_id"], name: "index_categoryservicos_on_salon_id"
-    t.index ["servico_id"], name: "index_categoryservicos_on_servico_id"
+    t.bigint "servico_id", null: false
+    t.index ["salon_id"], name: "index_category_servicos_on_salon_id"
+    t.index ["servico_id"], name: "index_category_servicos_on_servico_id"
   end
 
   create_table "salon_categories", force: :cascade do |t|
@@ -107,10 +107,9 @@ ActiveRecord::Schema.define(version: 2022_06_01_184051) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "agendamentos", "categoryservicos"
   add_foreign_key "agendamentos", "users"
-  add_foreign_key "categoryservicos", "salons"
-  add_foreign_key "categoryservicos", "servicos"
+  add_foreign_key "category_servicos", "salons"
+  add_foreign_key "category_servicos", "servicos"
   add_foreign_key "salon_categories", "categories"
   add_foreign_key "salon_categories", "salons"
   add_foreign_key "salons", "users"

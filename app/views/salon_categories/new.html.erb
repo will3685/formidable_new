@@ -1,6 +1,6 @@
 <div class="banner-home-page">
   <div class="container">
-   <h5>Cadastra a categoria do seu salão</h5>
+   <h5>Add category of your salon</h5>
       <%= simple_form_for [@salon, @saloncategory] do |f| %>
         <%= f.input :category_id,
           collection: @categories,
@@ -8,7 +8,8 @@
           required: true %>  
 
         <%= f.hidden_field :salon_id, value: @salon.id %> 
-        <%= f.submit "cadastre categoria", class: "btn btn-primary"%>
+        <%= f.submit "Save category", class: "btn btn-primary"%>
+        <%= link_to "Cancel", user_salons_path(current_user.id), class: "btn btn-primary" %>
       <% end %>
 
     </div>
