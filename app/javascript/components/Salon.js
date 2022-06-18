@@ -39,8 +39,8 @@ const Salon = (
 
 
   const sectionHeader = {
-    title: 'Seja Formidable',
-    paragraph: 'Encontre o trancista na sua cidade e agenda já seu serviço.'
+    title: 'Be Formidable',
+    paragraph: 'Find the best stylist in your city'
   };
 
   const [ salons, setSalons ] = useState([]);

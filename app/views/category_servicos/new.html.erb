@@ -1,7 +1,7 @@
 <div class="banner-home-page">
   <div class="container">
    <h5>Register the service offer by the salon</h5>
-      <%= simple_form_for [ @salon, @categoryservico ] do |f| %>
+      <%= simple_form_for [ @salon, @category_servico ] do |f| %>
         <%= f.input :servico_id,
           collection: @servicos,
           label: 'Select the service category',

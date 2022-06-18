@@ -4,16 +4,16 @@
       <h5>Você possui (<%= @agendamentos.length %>) agendamento(s)</h5>
       <% @agendamentos.each do |agendamento|%>
         <div class="card-agendamento">
-          <div>Agendamento de <%= agendamento.categoryservico.name %></div>
-          <div>com a trancista do <%= agendamento.categoryservico.salon.name %></div>
-          <div>Valor: <%= agendamento.categoryservico.price %> </div>
-          <div><%= agendamento.scheduled_time %></div>
+          <h6>Appointments of : <%= agendamento.category_servico.name %></h6>
+          <h6>with a stylist of <%= agendamento.category_servico.salon.name %></h6>
+          <h6>Price: $ <%= agendamento.category_servico.price %> </h6>
+          <h6><%= agendamento.scheduled_time %></h6>
          </div>
       <% end %>
     </div>
   <% else %>
     <div class="container"> 
-      <h5>Você não possui nenhum agendamento.</h5> 
+      <h5>You don't have any appointments yet.</h5> 
     </div> 
   <% end %>
 </div>

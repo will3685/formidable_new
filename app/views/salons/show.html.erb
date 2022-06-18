@@ -12,7 +12,7 @@
               <%= servico.name %>
             </button>
             <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenu2">
-              <% Categoryservico.where(salon_id: @salon.id, servico_id: servico.id).each do |category|%>
+              <% CategoryServico.where(salon_id: @salon.id, servico_id: servico.id).each do |category|%>
                 <li>
                   <div class="salon">
                     <div class="col-8">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-4 ">
                       <div>
-                        <%= link_to "Agendar Servico", new_categoryservico_agendamento_path(category.id) %>
+                        <%= link_to "Schedule service", new_category_servico_agendamento_path(category.id), class: "btn btn-primary" %>
                       </div>
                     </div>
                   </div>

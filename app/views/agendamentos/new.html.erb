@@ -2,19 +2,19 @@
   <div class="container">
     <div class="agendamento-card mt-8 salon">
       <div>
-        <div><%=  @categoryservico.salon.name%> </div>
+        <div><%=  @category_servico.salon.name%> </div>
         <div>Servico:</div>
-        <div><%= @categoryservico.name %></div>
-        <div><%= @categoryservico.description %></div>
+        <div><%= @category_servico.name %></div>
+        <div><%= @category_servico.description %></div>
       </div>
       <div>
         <div>A partir de:</div>
-        <div><%= @categoryservico.price%></div>
+        <div><%= @category_servico.price%></div>
       </div>
     </div>
 
-    <%= simple_form_for [ @categoryservico, @agendamento ] do |f| %>
-      <%= f.hidden_field :categoryservico_id, value: @categoryservico.id %>
+    <%= simple_form_for [ @category_servico, @agendamento ] do |f| %>
+      <%= f.hidden_field :category_servico_id, value: @category_servico.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.input :scheduled_time %>
       <%= f.submit "Agendar seu serviço", class: "btn btn-primary"%>

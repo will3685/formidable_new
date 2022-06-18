@@ -9,9 +9,9 @@ class AgendamentosController < ApplicationController
     @agendamento = Agendamento.new(agendamento_params)
     @agendamento.save
     if @agendamento.save
-      redirect_to salon_path(@categoryservico.salon), notice: "Agendamento realizado com sucesso"
+      redirect_to salon_path(@category_servico.salon), notice: "Your appointment was saved"
     else
-      redirect_to new_categoryservico_agendamento_path(@categoryservico.id), notice: "Seu agendamento não foi realizado"
+      redirect_to new_category_servico_agendamento_path(@category_servico.id), notice: "Try again"
     end
   end
 
@@ -22,11 +22,11 @@ class AgendamentosController < ApplicationController
   private
 
   def find_servico
-    @categoryservico = Categoryservico.find(params[:categoryservico_id])
+    @category_servico = CategoryServico.find_by(id: params[:category_servico_id])
   end
 
   def agendamento_params
-    params.require(:agendamento).permit(:scheduled_time, :user_id, :categoryservico_id)
+    params.require(:agendamento).permit(:scheduled_time, :user_id, :category_servico_id)
   end
 
 end

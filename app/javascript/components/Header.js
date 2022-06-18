@@ -5,8 +5,8 @@ import SectionHeader from "./partials/SectionHeader";
 class Header extends React.Component {
   render() {
     const sectionHeader = {
-      title: `Bem Vindo ${this.props.nome},`,
-      paragraph: 'O que pretende fazer hoje?'
+      title: `Welcome ${this.props.nome},`,
+      paragraph: 'What are we doing today?'
     };
     
     return(

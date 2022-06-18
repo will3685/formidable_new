@@ -26,9 +26,9 @@ Rails.application.routes.draw do
     resources :salons
   end
 
-  resources :salons do
+  resources :salons, except: [:edit] do
     resources :salon_categories, only: [:new , :create, :destroy]
-    resources :category_servicos, only: [:new, :create, :destroy]
+    resources :category_servicos, only: [:new, :create, :destroy, :index, :edit]
   end
   
   resources :category_servicos do

@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :agendamentos
-  has_many :salons
+  has_one :salon
   has_one_attached :avatar
 end
