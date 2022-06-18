@@ -1,8 +1,10 @@
 class AgendamentosController < ApplicationController
   before_action :find_servico,  only: [ :new, :create ]
+  
 
   def new
     @agendamento = Agendamento.new
+    @salon = @category_servico.salon
   end
 
   def create
@@ -16,7 +18,12 @@ class AgendamentosController < ApplicationController
   end
 
   def index
-    @agendamentos = Agendamento.where(user_id: current_user.id)
+    if current_user.has_salon?
+      @salon = Salon.find_by(user_id: current_user.id)
+      @agendamentos = @salon.agendamentos
+    else
+      @agendamentos = Agendamento.where(user_id: current_user.id)
+    end
   end
 
   private
@@ -26,7 +33,7 @@ class AgendamentosController < ApplicationController
   end
 
   def agendamento_params
-    params.require(:agendamento).permit(:scheduled_time, :user_id, :category_servico_id)
+    params.require(:agendamento).permit(:scheduled_time, :user_id, :category_servico_id, :salon_id)
   end
 
 end

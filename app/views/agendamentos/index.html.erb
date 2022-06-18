@@ -1,5 +1,19 @@
 <div class="banner-home-page">
-  <% if @agendamentos.length > 0 %>
+  <div class="container">
+  <% if current_user.has_salon? && @agendamentos.length > 0 %>
+    <div class="card-agendamento">
+      <% @agendamentos.each do |agendamento| %>
+        <h6>You have Appointments with : <%= agendamento.user.user_name %></h6>
+        <h6>Service: <%= agendamento.category_servico.name%> </h6>
+        <h6><%= agendamento.category_servico.description %></h6>
+         <h6><%= agendamento.category_servico.price %></h6>
+      <% end %>
+    </div>
+  <% elsif @current_user.has_salon? && @agendamentos.length === 0 %>
+    <div class="container">
+      <h6>You don't have any appointment yet.</h6>
+    </div>
+  <% elsif @agendamentos.length > 0 && !current_user.has_salon? %>
     <div class="container">
       <h5>Você possui (<%= @agendamentos.length %>) agendamento(s)</h5>
       <% @agendamentos.each do |agendamento|%>
@@ -8,7 +22,7 @@
           <h6>with a stylist of <%= agendamento.category_servico.salon.name %></h6>
           <h6>Price: $ <%= agendamento.category_servico.price %> </h6>
           <h6><%= agendamento.scheduled_time %></h6>
-         </div>
+        </div>
       <% end %>
     </div>
   <% else %>
@@ -16,4 +30,5 @@
       <h5>You don't have any appointments yet.</h5> 
     </div> 
   <% end %>
+  </div>
 </div>

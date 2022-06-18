@@ -14,6 +14,7 @@
     </div>
 
     <%= simple_form_for [ @category_servico, @agendamento ] do |f| %>
+      <%= f.hidden_field :salon_id, value: @salon.id %>
       <%= f.hidden_field :category_servico_id, value: @category_servico.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.input :scheduled_time %>
