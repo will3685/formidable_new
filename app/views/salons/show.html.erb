@@ -21,9 +21,11 @@
                       <p><%= category.price %> </p> 
                     </div>
                     <div class="col-4 ">
-                      <div>
-                        <%= link_to "Schedule service", new_category_servico_agendamento_path(category.id), class: "btn btn-primary" %>
-                      </div>
+                       <% if !current_user.has_salon? %>
+                          <div>
+                            <%= link_to "Schedule service", new_category_servico_agendamento_path(category.id), class: "btn btn-primary" %>
+                          </div>
+                        <% end %>
                     </div>
                   </div>
                 </li>

@@ -53,25 +53,25 @@ const Category = (
     {
       id: 1,
       name: "All things hair",
-      description: "Tudo relacionado ao seu cabelo",
+      description: "Your ultimate resource for hair inspiration, styling tips, stylist and more",
       url: require('./../images/category-image-01')
     },
     {
       id: 2,
       name: "Lashes",
-      description: "Tudo relacionado a lashes",
+      description: "Classic lashes, all things beauty, your ultimate resource for lashes stylist",
       url: require('./../images/category-image-02')
     },
     {
       id: 3,
-      name: "Make up artist",
-      description: "Encontre sua make favorita",
+      name: "Makeup artist",
+      description: "Find the best related makeup artist for your beauty",
       url: require('./../images/category-image-03')
     },
     {
       id: 4,
-      name: "Outros",
-      description: "Outras categorias",
+      name: "Others",
+      description: "Other services",
       url: require('./../images/category-image-04')
     }
   ];

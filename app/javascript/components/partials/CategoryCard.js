@@ -21,7 +21,7 @@ const CategoryCard = (props, imageFill) => {
             color="dark"
             wideMobile
             href={`/categories/${props.attributes.id}/salons`}
-            >Ver Categoria</Button>
+            >See category</Button>
         </div>
         <div className={
           classNames(
