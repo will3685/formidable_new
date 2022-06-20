@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_18_024517) do
+ActiveRecord::Schema.define(version: 2022_06_20_195531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 2022_06_18_024517) do
     t.index ["servico_id"], name: "index_category_servicos_on_servico_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "body"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "salon_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["salon_id"], name: "index_reviews_on_salon_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "salon_categories", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -114,6 +125,8 @@ ActiveRecord::Schema.define(version: 2022_06_18_024517) do
   add_foreign_key "agendamentos", "users"
   add_foreign_key "category_servicos", "salons"
   add_foreign_key "category_servicos", "servicos"
+  add_foreign_key "reviews", "salons"
+  add_foreign_key "reviews", "users"
   add_foreign_key "salon_categories", "categories"
   add_foreign_key "salon_categories", "salons"
   add_foreign_key "salons", "users"

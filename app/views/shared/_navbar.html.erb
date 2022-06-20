@@ -1,7 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm  sticky-top navbar-lewagon">
   <div class="container-fluid container">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"d-inline-block align-text-center" %>
+      Formidable
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,16 +13,16 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", '/', class: "nav-link" %>
+            <div><%= link_to "Home", '/', class: "nav-link" %></div>
           </li>
-           <li class="nav-item active">
+           <li class="nav-item">
             <% if current_user.has_salon? %>
               <%= link_to "My salons", user_salons_path(current_user.id), class: "nav-link" %>
             <% else %>
               <%= link_to "Register your salon", new_user_salon_path(current_user.id), class: "nav-link" %>
             <% end %>
           </li>
-           <li class="nav-item active">
+           <li class="nav-item">
             <% if current_user.has_salon? %>
               <%= link_to "Scheduled client", user_agendamentos_path(current_user.id), class: "nav-link" %>
             <% else %>
