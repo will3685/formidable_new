@@ -1,6 +1,66 @@
-<div class="banner-home-page">
-  <%= react_component("Header", {nome: current_user.user_name} )%>
-  <%= react_component("Category" ) %>
-</div>
+<div class="banner-with-background-1">
+  <%# <%= react_component("Header", {nome: current_user.user_name} )%>
+  <%# <%= react_component("Category" ) %>
 
+  <div class="container">
+    <div class="pt-12">
+     <%= react_component("Header", {nome: current_user.user_name} )%>
+    </div>
 
+    <div class="row gx-1 margin-top-element">
+
+      <div class="col">
+        <div class="card" style="max-width: 18rem;">
+          <img src="https://res.cloudinary.com/dx29o6cc9/image/upload/v1655936495/u8tbcpzmjvhjgwkkrkdc.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #000">All things hair</h5>
+            <p class="card-text">Your ultimate resource for hair inspiration, styling tips, stylist and more</p>
+            <div class="form-actions">
+              <%= link_to "See category", salons_category_path(1) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="max-width: 18rem;">
+          <img src="http://res.cloudinary.com/dx29o6cc9/image/upload/v1655936931/ro2upwpspr81ovlov840.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #000">Lashes</h5>
+            <p class="card-text">Classic lashes, all things beauty, your ultimate resource for lashes stylist</p>
+            <div class="form-actions">
+              <%= link_to "See category", salons_category_path(2) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="heigth: 24px;">
+          <img src="https://res.cloudinary.com/dx29o6cc9/image/upload/v1655993638/vosx9uaoe6w962x0ests.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #000">Makeup artist</h5>
+            <p class="card-text">Find the best related makeup artist for your beauty and many others</p>
+            <div class="form-actions">
+              <%= link_to "See category", salons_category_path(3) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="max-width: 18rem;">
+          <img src="https://res.cloudinary.com/dx29o6cc9/image/upload/v1655938285/wmpmqswwmaslmb2c2eyg.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #000">Others</h5>
+            <p class="card-text">Others services. Your ultimate resource for Baber Shop, stylist and more</p>
+            <div class="form-actions">
+              <%= link_to "See category", salons_category_path(4) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>

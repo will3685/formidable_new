@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :salons, except: [:show] 
     resources :agendamentos, only: [:index]
+    resources :reviews, only: [:new, :create, :edit]
   end
 
   resources :salons, except: [:edit] do

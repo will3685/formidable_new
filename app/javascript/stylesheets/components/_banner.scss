@@ -12,6 +12,13 @@
   background-repeat: no-repeat;
 }
 
+.banner-with-background-1 {
+  background-image: url('banner-home.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
 .banner-home-page {
   width: 100%;
   min-height: 100vh;
@@ -33,6 +40,8 @@
 }
 
 
+
+
 ///////////////// small devices
 
 
@@ -41,6 +50,9 @@
 ///// laptop
 
 @media(min-width: 768px) {
+  .margin-top-element {
+    padding-top: 24px;
+  }
 
 }
 
@@ -65,6 +77,10 @@
     height: auto;
   }
 
+  .margin-top-element {
+    padding-top: 20vh;
+  }
+
 }
 
 
@@ -83,6 +99,10 @@
 
   .home-banner-title {
     font-size: 25px;
+  }
+
+  .col {
+    padding-top: 4px;
   }
 }
 

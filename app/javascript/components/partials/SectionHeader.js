@@ -25,7 +25,7 @@ const SectionHeader = ({
 }) => {
 
   const classes = classNames(
-    'pb-12',
+    'pb-8',
     className
   );
 
@@ -45,7 +45,7 @@ const SectionHeader = ({
               <Component className={
                 classNames(
                   'mt-0',
-                  data.paragraph ? 'mb-16' : 'mb-0'
+                  data.paragraph ? 'mb-8' : 'mb-0'
                 )}>{data.title}</Component>
             }
             {data.paragraph &&

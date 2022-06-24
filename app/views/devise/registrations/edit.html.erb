@@ -18,7 +18,7 @@
         <%= f.input :avatar, 
                     required: false,
                     as: :file,
-                    hint: "Deseja alterar o seu avatar?" %>
+                    hint: "Do you wish to change your avatar?" %>
         <%= f.input :password,
                     hint: "leave it blank if you don't want to change it",
                     required: false,
@@ -27,7 +27,7 @@
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
-                    hint: "precisamos da sua senha para confirmar as alterações",
+                    hint: "Enter your current password to save the changes",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
              

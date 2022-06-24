@@ -53,5 +53,17 @@
   box-shadow: 0 0 3px grey;
 }
 
+.form-actions {
+  background-color: $linear-background;
+  border-radius: 10px;
+  text-align: center;
+  color: black;
+  background: linear-gradient(#B28228, #FFDF00);
+  box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 10%);
+  margin-bottom: 15px;
+  // width: 100%;
+}
 
-
+.form-actions:hover {
+  background: linear-gradient(#362c05, #483b06);
+}

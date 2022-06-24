@@ -10,15 +10,15 @@ const CategoryCard = (props, imageFill) => {
 
       <div className="split-item">
         <div className="split-item-content center-content-mobile " data-reveal-container=".split-item">
-          <h3 className="mt-0 mb-12">
+          <h6 className="mt-0 mb-12">
             {props.attributes.name}
-          </h3>
-          <h4 className="m-0">
+          </h6>
+          <p className="m-0">
             {props.attributes.description}
-            </h4>
+            </p>
           <Button
             tag="a" 
-            color="dark"
+            color="black"
             wideMobile
             href={`/categories/${props.attributes.id}/salons`}
             >See category</Button>

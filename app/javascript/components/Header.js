@@ -6,7 +6,7 @@ class Header extends React.Component {
   render() {
     const sectionHeader = {
       title: `Welcome ${this.props.nome},`,
-      paragraph: 'What are we doing today?'
+      paragraph: 'What are you doing today?'
     };
     
     return(

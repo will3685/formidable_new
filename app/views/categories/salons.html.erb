@@ -1,5 +1,5 @@
-<div class="banner-home-page">
-  <% if @salons.length > 0 %>
+<% if @salons.length > 0 %>
+  <div class="banner-home-page">
     <div class="salon split-item">
       <div class="col-lg-6 col-sm-12">
         <%= react_component("Salon", { url: @url}) %>
@@ -14,9 +14,8 @@
         </div>
       </div>
     </div>
-  <% else %>  
-    <div class="container"> 
-      <h5>No salon to display</h5> 
-    </div> 
-  <% end %> 
-</div> 
+  </div> 
+<% else %>  
+  <%= render 'shared/nodata'%>
+<% end %> 
+
