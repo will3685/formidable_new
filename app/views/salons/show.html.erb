@@ -45,7 +45,7 @@
         <% else %>
           <div>No photo in gallery yet</div>
         <% end %>
-        <h5>5.0 <span>⭐</span> (<%= @reviews.length %>) reviews</h5>
+        <h5><%= @salon.avg_score %><span>⭐</span> (<%= @reviews.length %>) reviews</h5>
         <% @reviews.each do |review| %>
           <div class="card mb-3">
             <div class="card-body">
