@@ -5,8 +5,8 @@ import { SectionSplitProps } from "./utils/SectionProps";
 
 
 import SectionHeader from "./partials/SectionHeader";
-import SalonCard from "./partials/SalonCard";
-import axios from "axios";
+// import SalonCard from "./partials/SalonCard";
+// import axios from "axios";
 
 const propTypes = {
   ...SectionSplitProps.types
@@ -43,36 +43,31 @@ const Salon = (
     paragraph: 'Find the best stylist in your city'
   };
 
-  const [ salons, setSalons ] = useState([]);
+  // const [ salons, setSalons ] = useState([]);
 
-  useEffect(() => {
-    const url = `/api/v1${props.url}`
-    axios.get(url)
-    .then(res => {
-      setSalons(res.data)
-    })
-    .catch( res => console.log(res))
-  }, [salons.length]);
+  // useEffect(() => {
+  //   const url = `/api/v1${props.url}`
+  //   axios.get(url)
+  //   .then(res => {
+  //     setSalons(res.data)
+  //   })
+  //   .catch( res => console.log(res))
+  // }, [salons.length]);
 
-  const grid = salons.map(item => {
-    return (
-      <SalonCard
-        key={item.id}
-        data={item}
-      />
-    )
-  })
+  // const grid = salons.map(item => {
+  //   return (
+  //     <SalonCard
+  //       key={item.id}
+  //       data={item}
+  //     />
+  //   )
+  // })
 
     return (
       <section 
         {...props}> 
         <div className={innerClasses}>
         <SectionHeader data={sectionHeader} className="center-content" />
-
-          <div>
-            {grid}
-          </div>
-
         </div> 
       </section>
     );

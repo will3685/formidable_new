@@ -1,5 +1,5 @@
 class SalonCategoriesController < ApplicationController
-  before_action :find_salon
+  before_action :find_salon, only: [:new, :create, :edit]
   before_action :all_categories
 
   def new
@@ -20,7 +20,7 @@ class SalonCategoriesController < ApplicationController
   private
 
   def find_salon
-    @salon = Salon.find_by(params[:id])
+    @salon = Salon.find_by(id: params[:salon_id])
   end
 
   def all_categories

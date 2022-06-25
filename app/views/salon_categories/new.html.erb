@@ -4,7 +4,7 @@
       <%= simple_form_for [@salon, @saloncategory] do |f| %>
         <%= f.input :category_id,
           collection: @categories,
-          label: 'Selecione a categoria do salão',
+          label: 'Select the category of you Salon',
           required: true %>  
 
         <%= f.hidden_field :salon_id, value: @salon.id %> 

@@ -12,18 +12,17 @@
               <%= link_to "Show Services", salon_category_servicos_path(salon_id: @salon.id),  class: "nav-link" %>
             </div>
           </div>
-          <% if @salon.categories.length > 0 %>
-              <h6>Categories of this salon</h6>
-            <% @salon.categories.each do |category| %>
-              <h6><%= category.name %></h6>
-            <% end %>
-            <% else%>
-            <h6>No category registered</h6>
-          <%= link_to "Add new Category", new_salon_salon_category_path(salon_id: @salon.id), class: "nav-link" %>
+        <% if @salon.categories.length > 0 %>
+          <h6>Categories of this salon</h6>
+          <% @salon.categories.each do |category| %>
+            <h6><%= category.name %></h6>
+          <% end %>
+        <% else%>
+          <h6>No category registered</h6>
+        <% end %>
+        <%= link_to "Add new Category", new_salon_salon_category_path(salon_id: @salon.id), class: "nav-link" %>
         <%= link_to "Add new services", new_salon_category_servico_path(salon_id: @salon.id), class: "nav-link" %>
-        </div>
-        
-      <% end %>
+        <%= link_to "Add new Salon", new_user_salon_path(user_id: current_user.id), class: "nav-link" %>
       </div>
   
   </div>

@@ -4,6 +4,10 @@ class CategoriesController < ApplicationController
   def salons
     @salons = @category.salons
 
+    @salons.each do |salon|
+      @salon = salon
+    end
+
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @salons.geocoded.map do |salon|
       {
@@ -17,7 +21,7 @@ class CategoriesController < ApplicationController
   private
 
   def find_category
-    @category = Category.find(params[:id])
+    @category = Category.find_by(id: params[:id])
   end 
 
   def absolute_url

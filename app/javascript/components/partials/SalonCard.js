@@ -9,14 +9,14 @@ const SalonCard = (props) => {
         <div className="card-background">
            <div>
            <Image
-            src={require('./../../images/foto-one')}
+            src={'https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png'}
             alt="Salon Image"
             width={285}
             height={322} /> 
           </div>
           <div className="p-2">
             <h3 className="m-0 ">{props.data.name}</h3> 
-            <div className="mb-0">O melhor canto da sua beleza. Entrar e aproveita a melhor estilista e maquiadora.</div>
+            <div className="mb-0">{props.data.description}</div>
             {/* <a href={`/salons/${props.data.id}`}>Ver Salao</a> */}
             <Button
               tag="a"

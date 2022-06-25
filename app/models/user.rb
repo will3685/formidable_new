@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :agendamentos
   has_many :reviews
-  has_one :salon
+  has_many :salons
   has_one_attached :avatar
 end
