@@ -19,6 +19,12 @@
             required: false,
             as: :file,
             hint: "You can register your salon with no photo" %>
+        <%= f.input :photos, 
+            label: 'Add a gallery of pictures',
+            required: false,
+            as: :file,
+            input_html: { multiple: true },
+            hint: "You can register your salon with no gallery" %>
         <%= f.hidden_field :user_id, value: @user.id %>
 
         <%= f.submit "Register your salon", class: 'sign' %>

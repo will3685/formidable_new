@@ -10,7 +10,7 @@
             <div class="d-flex">
               <div>
                 <% if salon.photo.attached? %>
-                  <%= cl_image_tag salon.photo.key, crop: :fill, class:"card-background card-img-top", alt:"This is a salon photo"%>
+                  <%= cl_image_tag salon.photo.key, height: 300, width: 400, crop: :fill, class:"", alt:"This is a salon photo"%>
                 <% else %>
                   <%= image_tag 'https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png', class:"card-background card-img-top", alt:"This is a salon photo" %>
                 <% end %>

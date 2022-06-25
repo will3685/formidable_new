@@ -1,68 +1,88 @@
 <div class="banner-home-page">
-  <div class="container">
-    <div class="salon">
-      <div class="col-lg-8 col-sm-12">
+  <div class="d-flex">
+      <div class="col-lg-6 col-sm-12">
         <h1><%=  @salon.name %></h1>
-        <h5>5.0 <span>⭐</span> (8 avaliação)</h5>
         <h5>Todos os serviços</h5>
-        <% @servicos.uniq.each do |servico|  %>
-        
-          <div class="dropdown mb-2">
-            <button class="btn btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= servico.name %>
-            </button>
-            <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenu2">
-              <% CategoryServico.where(salon_id: @salon.id, servico_id: servico.id).each do |category|%>
-                <li>
-                  <div class="salon">
-                    <div class="col-8">
-                      <p> <%= category.name %></p>
-                      <p><%= category.description %></p>
-                      <p><%= category.price %> </p> 
+        <% if @servicos.length > 0 %>
+          <% @servicos.uniq.each do |servico|  %>
+            <div class="dropdown mb-2">
+              <button class="btn btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= servico.name %>
+              </button>
+              <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenu2">
+                <% CategoryServico.where(salon_id: @salon.id, servico_id: servico.id).each do |category|%>
+                  <li>
+                    <div class="d-flex">
+                      <div class="col-8">
+                        <p> <%= category.name %></p>
+                        <p><%= category.description %></p>
+                        <p><%= category.price %> </p> 
+                      </div>
+                      <div class="col-4 ">
+                      <% if !current_user.has_salon? %>
+                        <div>
+                          <%= link_to "Schedule service", new_category_servico_agendamento_path(category.id), class: "btn btn-primary" %>
+                        </div>
+                      <% end %>
                     </div>
-                    <div class="col-4 ">
-                       <% if !current_user.has_salon? %>
-                          <div>
-                            <%= link_to "Schedule service", new_category_servico_agendamento_path(category.id), class: "btn btn-primary" %>
-                          </div>
-                        <% end %>
-                    </div>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
-          </div>
 
+                    </div>
+                  </li>
+                <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div>No products have registered yet.</div>
         <% end %>
-
-        <h5>Avaliação dos nossos clientes</h5>
-        <div>5.0 ⭐⭐⭐⭐⭐</div>
-        <div>serviço nota 10</div>
-        <div><%= current_user.user_name %> em 26/06/04</div>
-        <div>
-          <h1><%= @salon.name %></h1>
-          <div>A Hands Care é uma empresa familiar fundada em 1996, pioneira na prestação de serviços especializados em manicure e pedicure.
-
-Com vasta gama de opções voltadas ao embelezamento, cuidado e proteção das mãos, pés e cutículas, oferecemos às nossas clientes, no momento da realização dos serviços, todo o instrumental esterilizado em autoclave, acondicionados em embalagens descartáveis - garantindo assim 100% de higiene e segurança.
-
-Outra grande preocupação da nossa empresa é também a satisfação das clientes com os serviços oferecidos. Por isso, nossas funcionárias seguem um programa de qualidade, com treinamento orientado por dermatologistas e profissionais especializados, fator que as destaca das demais dentro da sua área de atuação.</div>
-        <div><h5>Formas de pagamento: </h5> Visa, Mastercard, American Express, Hipercard, Elo Crédito, Maestro/Redeshop, Visa Electron, Elo Débito, Doc/Ted, Transferência entre Conta Corrente, Dinheiro, À Vista, Depósito, PIX, Parcelamento próprio, Vale-Presente
-Idiomas: Português, Espanhol
-Facilidades: Wi-Fi, Estacionamento - Pago, Atendemos adultos e crianças, Acesso para Deficientes, TV, Aceita cartão de crédito</div>
-        <div><h5>Instruções especiais</h5>Trabalhamos com horarios agendados e encaixes.
-Informamos que a tolerância máxima para atrasos de clientes é de 5(cinco) minutos</div>
-
-        </div>
+        <% if @salon.photos.attached? %>
+          <div class=" row pt-4">
+            <% @salon.photos.each do |photo| %>
+              <div class="col">
+                <%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div>No photo in gallery yet</div>
+        <% end %>
+        <h5>5.0 <span>⭐</span> (<%= @reviews.length %>) reviews</h5>
+        <% @reviews.each do |review| %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <p style="color: #000"><%= review.user.user_name  %> on <%= review.created_at.strftime("%b, %a %d of %Y") %></p>
+              <p class="card-text"><%= review.body %></p>
+            </div>
+          </div>
+        <% end %>
+        <% if !current_user.has_salon? %>
+          <div class="form-actions-1">
+            <%= link_to "Reviews this salon", new_salon_review_path(@salon.id) %>
+          </div>
+        <% end %>
       </div>
-      <div class="col-lg-4 p-12">
+
+      <div class="col-lg-6 p-12">
         <div style="width: 100%; height: 300px;"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
         ></div>
-        <h5><%= @salon.address %></h5>
-        <p>Redes sociais</p>
-    </div>
+        <p><%= @salon.address %></p>
+        <h5><%= @salon.name %></h5>
+        <p><%= @salon.name %> is a family company founded in 1996, a pioneer in providing specialized services in manicure and pedicure. With a wide range of options aimed at beautifying, caring for and protecting hands, feet and cuticles, we offer our clients, when performing the services, all instruments sterilized in autoclave, packed in disposable packages - thus ensuring 100% hygiene and safety. Another great concern of our company is our clients' satisfaction with the services offered. For this reason, our employees follow a quality program, with training oriented by dermatologists and specialized professionals, a factor that sets them apart from the others in their area of expertise.</p>
+        <h5>Payment methods: </h5> 
+        <p> Visa, Mastercard, American Express, Hipercard, Elo Crédito, Maestro/Redeshop, 
+        Visa Electron, Elo Debit, Doc/Ted, Current Account Transfer, Cash, 
+        Cash, Deposit, PIX, Own Instalment Payment, Gift Certificate
+        Languages: Portuguese, Spanish
+        Facilities: Wi-Fi, Parking - Paid, Adults and Children catered for, Handicap accessible, TV, Credit cards accepted  <h5>Instruções especiais</h5>
+        <p>We work with scheduled times and fittings.
+        We inform you that the maximum tolerance for customer delays is 5 (five) minutes</p>
+
+        </div>
+      </div>
+      </div>
+    
   </div>
 </div>
 

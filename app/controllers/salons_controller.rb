@@ -1,6 +1,7 @@
 class SalonsController < ApplicationController
   before_action :find_salon, only: [:update, :show, :edit]
   before_action :find_user, only: [:create, :index, :new]
+  before_action :find_reviews, only: [:show]
   
   def new
     @salon = Salon.new
@@ -23,13 +24,12 @@ class SalonsController < ApplicationController
 
   def create
     @salon = Salon.new(salon_params)
-    @salon.save
     if @salon.save
       @user.has_salon = true
       @user.save
       redirect_to  new_salon_salon_category_path(@salon.id)
     else
-      redirect_to new_user_salon_path(@user.id), notice: "Houve um erro no cadastro do seu negocio"
+      redirect_to new_user_salon_path(@user.id), notice: "Something goes wrong registering your salon"
     end
   end
 
@@ -46,6 +46,10 @@ class SalonsController < ApplicationController
 
   private
 
+  def find_reviews
+    @reviews = Review.where(salon_id: @salon.id)
+  end
+
   def find_salon
     @salon = Salon.find_by_id(params[:id])
   end
@@ -55,6 +59,6 @@ class SalonsController < ApplicationController
   end
 
   def salon_params
-    params.require(:salon).permit(:name, :address, :description, :photo, :user_id)
+    params.require(:salon).permit(:name, :address, :description, :photo, :user_id, photos: [])
   end
 end

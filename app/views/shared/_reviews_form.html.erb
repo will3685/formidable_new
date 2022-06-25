@@ -1,0 +1,20 @@
+<div class="banner-home-page banner-with-background">
+  <div class="container">
+    <div class="sign-modals">
+      <h5>Have an experience with <%= @salon.name %> ? Share your review</h5>
+      <%= simple_form_for [ @salon, @review ] do |f| %>
+        <%= f.input :body,
+            label: 'Review the salon',
+            required: true %>
+        <%= f.input :score,
+            label: 'How much you rate this salon?',
+            required: true %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :salon_id, value: @salon.id %>
+
+        <%= f.submit "Add your review", class: 'sign' %>
+      <% end %>
+      <%= link_to "Back", salon_path(@salon.id), class: 'sign' %>
+    </div>
+  </div>
+</div>
