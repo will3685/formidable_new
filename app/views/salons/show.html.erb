@@ -34,6 +34,7 @@
         <% else %>
           <div>No products have registered yet.</div>
         <% end %>
+        <h5>Gallery of work</h5>
         <% if @salon.photos.attached? %>
           <div class=" row pt-4">
             <% @salon.photos.each do |photo| %>
