@@ -1,5 +1,5 @@
 class SalonsController < ApplicationController
-  before_action :find_salon, only: [:update, :show, :edit]
+  before_action :find_salon, only: [:update, :show, :edit, :index]
   before_action :find_user, only: [:create, :index, :new]
   before_action :find_reviews, only: [:show]
   
@@ -8,7 +8,8 @@ class SalonsController < ApplicationController
   end
 
   def index
-    @salon = Salon.find_by(user_id: @user.id)
+    @salons = Salon.where(user_id: @user.id)
+    p @salons
   end
 
   def edit
@@ -24,6 +25,7 @@ class SalonsController < ApplicationController
 
   def create
     @salon = Salon.new(salon_params)
+    @salon.save
     if @salon.save
       @user.has_salon = true
       @user.save
