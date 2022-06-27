@@ -14,13 +14,19 @@
           <% end %>
           
           <div class="card-product-infos">
-            <h2><%= favorito.salon.name %></h2>
+            <h2 style="color: #000"><%= favorito.salon.name %></h2>
             <p><%= favorito.salon.description %>.</p>
             <div class="form-actions-1">
               <%= link_to "See salon", salon_path(favorito.salon.id) %>
             </div>
             <p>Rate: <%= favorito.salon.avg_score%> </p>
             <p><%= favorito.salon.reviews.length %> reviews</p>
+            <%= link_to "Remove from Favorite",
+              salon_favorito_path(salon_id: favorito.salon.id, id: favorito.id), 
+              method: :delete, 
+              :remote => true,
+              style: "color: #000;",
+              data: { confirm: "Are you sure?" }%>
           </div>
         </div>
 
