@@ -22,10 +22,12 @@
               <h6>No category registered</h6>
             <% end %>
             <%= link_to "Add new Category", new_salon_salon_category_path(salon_id: salon.id), class: "nav-link" %>
-            <%= link_to "Add new services", new_salon_category_servico_path(salon_id: salon.id), class: "nav-link" %>
+            <%= link_to "Add new service", new_salon_category_servico_path(salon_id: salon.id), class: "nav-link" %>
         </div>
         <% end %>
-      <%= link_to "Add new Salon", new_user_salon_path(user_id: current_user.id), class: "nav-link" %>
+      <% if current_user.id === 1 %>
+        <%= link_to "Add new Salon", new_user_salon_path(user_id: current_user.id), class: "nav-link" %>
+      <% end %>
   
   </div>
 </div>

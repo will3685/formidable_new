@@ -40,7 +40,7 @@ class CategoryServicosController < ApplicationController
   private
 
   def find_salon
-    @salon = Salon.find_by(params[:id])
+    @salon = Salon.find_by(id: params[:salon_id])
   end
 
   def find_category_servico

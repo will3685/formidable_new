@@ -9,7 +9,6 @@ class SalonsController < ApplicationController
 
   def index
     @salons = Salon.where(user_id: @user.id)
-    p @salons
   end
 
   def edit
