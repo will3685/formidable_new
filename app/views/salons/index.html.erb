@@ -9,6 +9,7 @@
                 <h5><%= salon.description %></h5>
               </div>
               <div class="d-flex">
+                <%= link_to "View Salon", salon_path(id: salon.id), class: "nav-link" %>
                 <%= link_to "Edit Salon", edit_user_salon_path(user_id: current_user.id,id: salon.id), class: "nav-link" %>
                 <%= link_to "Show Services", salon_category_servicos_path(salon_id: salon.id),  class: "nav-link" %>
               </div>
