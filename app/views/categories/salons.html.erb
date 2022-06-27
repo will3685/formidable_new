@@ -6,24 +6,27 @@
         <h4 class="text-center pb-4">Find the best stylist in your city</h4>
         <%# <%= react_component("Salon", { url: @url }) %>
         <% @salons.each do |salon|%>
-          <div class="card mb-3">
-            <div class="d-flex flex-wrap">
-              <div style="max-height: 300px; max-width: 400px">
-                <% if salon.photo.attached? %>
-                  <%= cl_image_tag salon.photo.key, height: 300, width: 400, crop: :fill, class:"", alt:"This is a salon photo"%>
-                <% else %>
-                  <%= image_tag 'https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png', class:"card-background card-img-top", alt:"This is a salon photo" %>
-                <% end %>
-              </div>
-              <div class="card-body">
-                <h5 style="color: #000"><%= salon.name %></h5>
-                <p class="card-text"><%= salon.description %></p>
-                <div class="form-actions-1">
-                  <%= link_to "See salon", salon_path(salon.id) %>
-                </div>
-              </div>
+
+        <div class="card-product flex-wrap mb-3">
+
+          <% if salon.photo.attached? %>
+            <img src='<%= cl_image_path salon.photo.key, height: 300, width: 400, crop: :fill %>' alt="This is a salon photo"/>
+          <% else %>
+            <img src='https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png' alt="This is a salon photo" />
+          <% end %>
+          
+          <div class="card-product-infos">
+            <h2><%= salon.name %></h2>
+            <p><%= salon.description %>.</p>
+            <div class="form-actions-1">
+              <%= link_to "See salon", salon_path(salon.id) %>
             </div>
+            <p>Rate: <%= salon.avg_score%> </p>
+            <p><%= salon.reviews.length %> reviews</p>
+            <%= link_to "❤️", salon_favoritos_path(salon.id, current_user.id), method: :post, :remote => true %>
           </div>
+        </div>
+
         <% end %>
       </div>
       <div class="col-lg-6 mapa">

@@ -24,12 +24,14 @@ Rails.application.routes.draw do
   resources :users do
     resources :salons, except: [:show] 
     resources :agendamentos, only: [:index]
+    resources :favoritos, only: [:index]
   end
 
   resources :salons, except: [:edit] do
     resources :salon_categories, only: [:new , :create, :destroy]
     resources :category_servicos, only: [:new, :create, :destroy, :index, :edit]
     resources :reviews, only: [:new, :create]
+    resources :favoritos, only: [:create, :destroy]
   end
   
   resources :category_servicos do

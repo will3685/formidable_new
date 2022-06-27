@@ -1,0 +1,30 @@
+<div class="banner-home-page">
+  <div class="container">
+
+  <h5>Your favorites salons</h5>
+
+    <% @favoritos.each do |favorito|%>
+
+        <div class="card-product flex-wrap mb-3">
+
+          <% if favorito.salon.photo.attached? %>
+            <img src='<%= cl_image_path favorito.salon.photo.key, height: 300, width: 400, crop: :fill %>' alt="This is a salon photo"/>
+          <% else %>
+            <img src='https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png' alt="This is a salon photo" />
+          <% end %>
+          
+          <div class="card-product-infos">
+            <h2><%= favorito.salon.name %></h2>
+            <p><%= favorito.salon.description %>.</p>
+            <div class="form-actions-1">
+              <%= link_to "See salon", salon_path(favorito.salon.id) %>
+            </div>
+            <p>Rate: <%= favorito.salon.avg_score%> </p>
+            <p><%= favorito.salon.reviews.length %> reviews</p>
+          </div>
+        </div>
+
+        <% end %>
+
+  </div>
+</div>
