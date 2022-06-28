@@ -1,5 +1,5 @@
 class CategoryServicosController < ApplicationController
-  before_action :find_salon, only: [ :index, :create, :new]
+  before_action :find_salon, only: [ :index, :create, :new, :destroy]
   before_action :find_category_servico, only: [:edit, :update, :destroy]
   before_action :all_services
 
@@ -39,7 +39,7 @@ class CategoryServicosController < ApplicationController
 
   def destroy
     @category_servico.destroy
-    redirect_to user_salons_path(current_user.id), notice: "Service was deleted"
+    redirect_to salon_category_servicos_path(salon_id: @salon.id), notice: "Service was deleted"
   end
 
   private
