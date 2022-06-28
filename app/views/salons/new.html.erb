@@ -26,8 +26,11 @@
             input_html: { multiple: true },
             hint: "You can register your salon with no gallery" %>
         <%= f.hidden_field :user_id, value: @user.id %>
-
-        <%= f.submit "Register your salon", class: 'sign' %>
+        <% if current_user.id === 1 %>
+          <%= f.submit "Register your salon", class: 'sign' %>
+        <% else %>
+           <%= link_to "No action for this", '/', class: 'sign' %>
+        <% end %>
       <% end %>
       <%= link_to "Back", '/', class: 'sign' %>
     </div>
