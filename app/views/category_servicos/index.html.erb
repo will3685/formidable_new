@@ -1,6 +1,6 @@
 <div class = "banner-home-page">
   <div class="container">
-    <h5>Here are all the services you have registered. Select one to edit</h5>
+    <h5>Here are all the services you have registered.</h5>
       <% if @category_servicos.length > 0 %>
         <% @category_servicos.each do |category_servico| %>
           <div class="card-agendamento">
@@ -12,6 +12,12 @@
               </div>
               <div>
                 <%= link_to "Edit Service", edit_salon_category_servico_path(salon_id: @salon.id, id: category_servico.id ), class: "nav-link" %>
+                <%= link_to "Delete Service", 
+                salon_category_servico_path(salon_id: @salon.id, id: category_servico.id ), 
+                method: :delete, 
+                :remote => true,
+                data: { confirm: "Are you sure?" },
+                class: "nav-link" %>
               </div>
             </div>
           </div>

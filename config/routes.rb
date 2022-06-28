@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :favoritos, only: [:create, :destroy]
   end
   
-  resources :category_servicos do
+  resources :category_servicos, except: [:new, :create, :index, :edit, :destroy] do
     resources :agendamentos, only: [:new , :create]
   end
 end
