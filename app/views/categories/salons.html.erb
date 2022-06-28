@@ -10,7 +10,7 @@
         <div class="card-product mb-3">
 
           <% if salon.photo.attached? %>
-            <img src='<%= cl_image_path salon.photo.key, height: 300, width: 400, crop: :fill %>' alt="This is a salon photo"/>
+            <img src='<%= cl_image_path salon.photo.key, height: 200, width: 300, crop: :fill %>' alt="This is a salon photo"/>
           <% else %>
             <img src='https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png' alt="This is a salon photo" />
           <% end %>
