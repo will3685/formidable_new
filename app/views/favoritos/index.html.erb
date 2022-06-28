@@ -1,9 +1,8 @@
-<div class="banner-home-page">
-  <div class="container">
-
-  <h5>Your favorites salons</h5>
-
-    <% @favoritos.each do |favorito|%>
+<% if @favoritos.length > 0%>
+  <div class="banner-home-page">
+    <div class="container">
+    <h5>Your favorites salons</h5>
+      <% @favoritos.each do |favorito|%>
 
         <div class="card-product flex-wrap mb-3">
 
@@ -29,8 +28,9 @@
               data: { confirm: "Are you sure?" }%>
           </div>
         </div>
-
-        <% end %>
-
+      <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <%= render 'shared/nodata'%>
+<% end %>
