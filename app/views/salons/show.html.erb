@@ -2,7 +2,7 @@
   <div class="d-flex">
       <div class="col-lg-6 col-sm-12">
         <h1><%=  @salon.name %></h1>
-        <h5>Todos os serviços</h5>
+        <h5>All the services</h5>
         <% if @servicos.length > 0 %>
           <% @servicos.uniq.each do |servico|  %>
             <div class="dropdown mb-2">

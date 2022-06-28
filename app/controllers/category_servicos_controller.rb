@@ -22,7 +22,7 @@ class CategoryServicosController < ApplicationController
     p @category_servico
     @category_servico.save
     if @category_servico.save
-      redirect_to user_salons_path(current_user.id), notice: "Service saved successfully."
+      redirect_to salon_category_servicos_path(@salon.id), notice: "Service saved successfully."
     else
       redirect_to new_salon_category_servico_path(salon_id: @salon.id), notice: "Something goes wrong try again"
     end
@@ -31,7 +31,7 @@ class CategoryServicosController < ApplicationController
   def update
     @salon = Salon.find_by(id: params[:salon_id])
     if @category_servico.update(category_servico_params)
-      redirect_to user_salons_path(current_user.id), notice: "Service was successfully updated."
+      redirect_to salon_category_servicos_path(@salon.id), notice: "Service was successfully updated."
     else
       redirect_to new_salon_category_servico_path(salon_id: @salon.id), notice: "Something goes wrong try again"
     end

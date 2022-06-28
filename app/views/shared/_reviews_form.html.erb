@@ -4,8 +4,7 @@
       <h5>Have an experience with <%= @salon.name %> ? Share your review</h5>
       <%= simple_form_for [ @salon, @review ] do |f| %>
         <%= f.input :body,
-            label: 'Review the salon',
-            required: true %>
+            label: 'Review the salon'%>
         <%= f.input :score,
             collection: 1..5, prompt: "Select your score:", selected: 1,
             label: 'How much you rate this salon?',
