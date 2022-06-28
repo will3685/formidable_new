@@ -4,7 +4,7 @@
     <h5>Your favorites salons</h5>
       <% @favoritos.each do |favorito|%>
 
-        <div class="card-product flex-wrap mb-3">
+        <div class="card-product" style="width: 60%" flex-wrap mb-3">
 
           <% if favorito.salon.photo.attached? %>
             <img src='<%= cl_image_path favorito.salon.photo.key, height: 300, width: 400, crop: :fill %>' alt="This is a salon photo"/>
