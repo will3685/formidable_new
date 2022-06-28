@@ -18,7 +18,7 @@
           <div class="card-product-infos">
             <h2 style="color: #000"><%= salon.name %></h2>
             <p><%= salon.description %>.</p>
-            <%= link_to "See salon", salon_path(salon.id), class: "btn btn-gradient" %>
+            <%= link_to "See salon", salon_path(salon.id), style:"color: #000" %>
             <p>Rate: <%= salon.avg_score%> </p>
             <p><%= salon.reviews.length %> reviews</p>
             <%= link_to "❤️", 
