@@ -32,8 +32,8 @@
 }
 
 .card-product img {
-  height: 200px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
   object-fit: cover;
 }
 
@@ -55,12 +55,20 @@
   padding: 16px;
 }
 
-// .card-product-infos .card-trip-user {
-//   position: absolute;
-//   // right: 16px;
-//   // top: 5px;
-//   width: 60px;
-// }
+.btn-gradient {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient(#167FFB, #0F60C4);
+  transition: background 0.3s ease;
+  border: 1px solid #0F60C4;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
 
 .split-wrap {
 	margin-top: -($split-item--padding-v__mobile * 0.5);

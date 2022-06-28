@@ -10,7 +10,7 @@
         <div class="card-product mb-3">
 
           <% if salon.photo.attached? %>
-            <img src='<%= cl_image_path salon.photo.key, height: 200, width: 300, crop: :fill %>' alt="This is a salon photo"/>
+            <img src='<%= cl_image_path salon.photo.key, height: 300, width: 400, crop: :fill %>' alt="This is a salon photo"/>
           <% else %>
             <img src='https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png' alt="This is a salon photo" />
           <% end %>
@@ -18,9 +18,7 @@
           <div class="card-product-infos">
             <h2 style="color: #000"><%= salon.name %></h2>
             <p><%= salon.description %>.</p>
-            <div class="form-actions-1" style="max-width: 100px;">
-              <%= link_to "See salon", salon_path(salon.id) %>
-            </div>
+            <%= link_to "See salon", salon_path(salon.id), class: "btn btn-gradient" %>
             <p>Rate: <%= salon.avg_score%> </p>
             <p><%= salon.reviews.length %> reviews</p>
             <%= link_to "❤️", 
