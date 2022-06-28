@@ -1,4 +1,4 @@
-<div class="banner-home-page">
+<div class="banner-home">
   <div class="container">
     <div class="agendamento-card mt-8 salon">
       <div>
@@ -18,7 +18,7 @@
       <%= f.hidden_field :category_servico_id, value: @category_servico.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.input :scheduled_time %>
-      <%= f.submit "Agendar seu serviço", class: "btn btn-primary"%>
+      <%= f.submit "Schedule this service", class: "btn btn-primary"%>
     <% end %>
   </div>
 </div>
