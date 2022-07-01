@@ -1,13 +1,87 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
-@import "config/bootstrap_variables";
+// @import "config/bootstrap_variables";
 // @import "config/actiontext";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
+@import "mapbox-gl/dist/mapbox-gl";
+
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
+// @import "pages/index";
 @import "utilities/index";
+
+
+// # Variable, funcions and mixins
+
+@import "./core/abstracts/functions",
+        "./settings/settings",
+        "./core/abstracts/mixins",
+        "./core/abstracts/include-media";
+
+// Normalize
+
+@import "./core/normalize";
+
+// Fonts 
+@import "./core/base/fonts";
+
+// Base 
+@import "./core/base/base";
+
+// Typhograpy 
+@import "./core/base/typography";
+
+// Containers 
+@import "./core/elements/containers";
+
+// Buttons 
+@import "./core/elements/buttons";
+
+// Forms 
+@import "./core/elements/forms";
+
+// Split pattern
+@import "./core/patterns/split";
+
+// Tiles pattern 
+@import "./core/patterns/tiles";
+
+// site content 
+@import "./core/layout/main";
+
+// section 
+@import "./core/sections/section";
+
+/*--------------------------------------------------------------
+# Features split
+--------------------------------------------------------------*/
+@import "./core/sections/features-split";
+
+/*--------------------------------------------------------------
+# Features tiles
+--------------------------------------------------------------*/
+@import "./core/sections/features-tiles";
+
+/*--------------------------------------------------------------
+# Testimonial
+--------------------------------------------------------------*/
+@import "./core/sections/testimonial";
+
+/*--------------------------------------------------------------
+# Call to action
+--------------------------------------------------------------*/
+@import "./core/sections/cta";
+
+/*--------------------------------------------------------------
+# Theme
+--------------------------------------------------------------*/
+@import "./theme/theme";
+
+/*--------------------------------------------------------------
+# Helpers
+--------------------------------------------------------------*/
+@import "./core/base/helpers";

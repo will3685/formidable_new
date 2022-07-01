@@ -1,0 +1,92 @@
+<div class="banner-home-page">
+  <div class="d-flex">
+      <div class="col-lg-6 col-sm-12">
+        <h1><%=  @salon.name %></h1>
+        <h5>All the services</h5>
+        <% if @servicos.length > 0 %>
+          <% @servicos.uniq.each do |servico|  %>
+            <div class="dropdown mb-2">
+              <button class="btn btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= servico.name %>
+              </button>
+              <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenu2">
+                <% CategoryServico.where(salon_id: @salon.id, servico_id: servico.id).each do |category|%>
+                  <li>
+                    <div class="d-flex">
+                      <div class="col-8">
+                        <p> <%= category.name %></p>
+                        <p><%= category.description %></p>
+                        <p><%= category.price %> </p> 
+                      </div>
+                      <div class="col-4 ">
+                      <% if !current_user.has_salon? %>
+                        <div>
+                          <%= link_to "Schedule service", new_category_servico_agendamento_path(category.id), class: "btn btn-primary" %>
+                        </div>
+                      <% end %>
+                    </div>
+
+                    </div>
+                  </li>
+                <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div>No products have registered yet.</div>
+        <% end %>
+        <h5>Gallery of work</h5>
+        <% if @salon.photos.attached? %>
+          <div class="cards">
+            <% @salon.photos.each do |photo| %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path photo.key, height: 200, width: 300, crop: :fill%>')">
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div>No photo in gallery yet</div>
+        <% end %>
+        <h5><%= @salon.avg_score %><span>⭐</span> (<%= @reviews.length %>) reviews</h5>
+        <% @reviews.each do |review| %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <p style="color: #000"><%= review.user.user_name  %> on <%= review.created_at.strftime("%b, %a %d of %Y") %></p>
+              <% if review.body? %>
+                <p class="card-text"><%= review.body %></p>
+              <% else %>
+                <p class="card-text"><%= review.score %> </p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <% if !current_user.has_salon? %>
+          <div class="form-actions-1">
+            <%= link_to "Reviews this salon", new_salon_review_path(@salon.id) %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-lg-6 p-12">
+        <div style="width: 100%; height: 300px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+        <p><%= @salon.address %></p>
+        <h5><%= @salon.name %></h5>
+        <p><%= @salon.name %> is a family company founded in 1996, a pioneer in providing specialized services in manicure and pedicure. With a wide range of options aimed at beautifying, caring for and protecting hands, feet and cuticles, we offer our clients, when performing the services, all instruments sterilized in autoclave, packed in disposable packages - thus ensuring 100% hygiene and safety. Another great concern of our company is our clients' satisfaction with the services offered. For this reason, our employees follow a quality program, with training oriented by dermatologists and specialized professionals, a factor that sets them apart from the others in their area of expertise.</p>
+        <h5>Payment methods: </h5> 
+        <p> Visa, Mastercard, American Express, Hipercard, Elo Crédito, Maestro/Redeshop, 
+        Visa Electron, Elo Debit, Doc/Ted, Current Account Transfer, Cash, 
+        Cash, Deposit, PIX, Own Instalment Payment, Gift Certificate
+        Languages: Portuguese, Spanish
+        Facilities: Wi-Fi, Parking - Paid, Adults and Children catered for, Handicap accessible, TV, Credit cards accepted  <h5>Instruções especiais</h5>
+        <p>We work with scheduled times and fittings.
+        We inform you that the maximum tolerance for customer delays is 5 (five) minutes</p>
+
+        </div>
+      </div>
+      </div>
+    
+  </div>
+</div>
+

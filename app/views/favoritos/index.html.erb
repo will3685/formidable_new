@@ -1,0 +1,34 @@
+<% if @favoritos.length > 0%>
+  <div class="banner-home-page">
+    <div class="container">
+    <h5>Your favorites salons</h5>
+      <% @favoritos.each do |favorito|%>
+
+        <div class="card-product  flex-wrap mb-3" style="width: 80%">
+
+          <% if favorito.salon.photo.attached? %>
+            <img src='<%= cl_image_path favorito.salon.photo.key, height: 300, width: 400, crop: :fill %>' alt="This is a salon photo"/>
+          <% else %>
+            <img src='https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png' alt="This is a salon photo" />
+          <% end %>
+          
+          <div class="" style="width: 440px; padding: 8px;">
+            <h2 style="color: #000"><%= favorito.salon.name %></h2>
+            <p><%= favorito.salon.description %>.</p>
+            <%= link_to "View salon", salon_path(favorito.salon.id), style: "color: #000;" %>
+            <p>Rate: <%= favorito.salon.avg_score%> </p>
+            <p><%= favorito.salon.reviews.length %> reviews</p>
+            <%= link_to "Remove from Favorite",
+              salon_favorito_path(salon_id: favorito.salon.id, id: favorito.id), 
+              method: :delete, 
+              :remote => true,
+              style: "color: #000;",
+              data: { confirm: "Are you sure?" }%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= render 'shared/nodata'%>
+<% end %>

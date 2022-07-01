@@ -1,0 +1,45 @@
+<% if @salons.length > 0 %>
+  <div class="banner-home-page">
+    <div class="salon split-item">
+      <div class="col-lg-6 col-sm-12 p-4">
+        <h3 class="text-center">Be Formidable</h3>
+        <h4 class="text-center pb-4">Find the best stylist in your city</h4>
+        <%# <%= react_component("Salon", { url: @url }) %>
+        <% @salons.each do |salon|%>
+
+        <div class="card-product mb-3">
+
+          <% if salon.photo.attached? %>
+            <img src='<%= cl_image_path salon.photo.key, height: 200, width: 300, crop: :fill %>' alt="This is a salon photo"/>
+          <% else %>
+            <img src='https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png' alt="This is a salon photo" />
+          <% end %>
+          
+          <div class="card-product-infos">
+            <h2 style="color: #000"><%= salon.name %></h2>
+            <p><%= salon.description %>.</p>
+            <%= link_to "View salon", salon_path(salon.id), style:"color: #000" %>
+            <p>Rate: <%= salon.avg_score%> </p>
+            <p><%= salon.reviews.length %> reviews</p>
+            <%= link_to "❤️", 
+              salon_favoritos_path(salon.id, current_user.id), 
+              method: :post, 
+              :remote => true %>
+          </div>
+        </div>
+
+        <% end %>
+      </div>
+      <div class="col-lg-6 mapa">
+          <div style="width: 100%; height: 100vh;"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+          ></div>
+      </div>
+    </div>
+  </div> 
+<% else %>  
+  <%= render 'shared/nodata'%>
+<% end %> 
+

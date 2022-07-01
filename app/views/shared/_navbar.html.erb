@@ -1,29 +1,51 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "/category_feed", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+<div class="navbar navbar-expand-sm  sticky-top navbar-lewagon">
+  <div class="container-fluid container">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "https://res.cloudinary.com/dx29o6cc9/image/upload/v1656272872/gnjnx1vhfahpeonghpqi.png", class:"d-inline-block align-text-center" %>
+      Formidable
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon icon-nav" ></span>
     </button>
+  
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <div><%= link_to "Home", '/', class: "nav-link" %></div>
           </li>
-           <li class="nav-item active">
-            <%= link_to "Agendamentos", "#", class: "nav-link" %>
+           <li class="nav-item">
+            <%# <% if current_user.id === 1 %>
+            <% if current_user.has_salon %>
+              <%= link_to "My salons", user_salons_path(current_user.id), class: "nav-link" %>
+            <% else %>
+              <%= link_to "Register your salon", new_user_salon_path(current_user.id), class: "nav-link" %>
+              <%# <%= link_to "Register your salon", feed_path(user_id: current_user.id), class: "nav-link" %>
+            <% end %>
+          </li>
+           <li class="nav-item">
+            <% if current_user.has_salon? %>
+              <%= link_to "Scheduled client", user_agendamentos_path(current_user.id), class: "nav-link" %>
+            <% else %>
+              <%= link_to "Appointments", user_agendamentos_path(user_id: current_user.id), class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Favoritos", "#", class: "nav-link" %>
+            <% if !current_user.has_salon? %>
+              <%= link_to "Favorites", user_favoritos_path(current_user.id), class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit", "#", class: "dropdown-item" %>
+            <% if current_user.avatar.attached? %>
+              <%= cl_image_tag current_user.avatar.key, height: 50, width: 50, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag 'https://res.cloudinary.com/dx29o6cc9/image/upload/v1654001590/avatar-default_qj2oz9.png', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+
+            <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+              <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

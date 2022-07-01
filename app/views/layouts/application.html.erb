@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>FormidableNew</title>
+    <meta charset="utf-8">
+    <title><%= meta_title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
+    <meta name="image" property="og:image" content= <%= image_path 'thumbnail.png' %>>
+    <meta name="description" content="<%= meta_description %>">
+    <meta property="og:site_name" content="<%= meta_title %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %> 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
-
+     <%= query_diet_widget(bad_count: 20, bad_time: 1500) if Rails.env.development? %>
     <div class="flex-wraper w-100 container-challenge-background">
       <% if current_user %>
         <%= render 'shared/navbar' %>

@@ -1,0 +1,24 @@
+<div class="banner-home-page">
+  <div class="container">
+    <h5>Edit the service offer by the salon</h5>
+    <%= simple_form_for [ @category_servico ] do |f| %>
+      <%= f.input :servico_id,
+            collection: @servicos,
+            label: 'Change the category of the service',
+            required: false %>  
+          <%= f.input :name,
+            label: 'Edit the name of the service',
+            required: false %>
+          <%= f.input :description,
+            label: 'Edit the description of the service',
+            required: false %>
+          <%= f.input :price,
+            as: :currency,
+            label: 'Edit the price of the service',
+            required: false %>
+        <%= f.hidden_field :salon_id, value: @salon.id %> 
+        <%= f.submit "Update service", class: "btn btn-primary"%>
+        <%= link_to "Cancel", user_salons_path(current_user.id), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

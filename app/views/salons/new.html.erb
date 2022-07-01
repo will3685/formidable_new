@@ -1,0 +1,38 @@
+<div class="banner-home-page banner-with-background">
+  <div class="container">
+    <div class="sign-modals">
+      <h5>Thank you for choosing the platform</h5>
+      <h5>Let's register your salon</h5>
+      <%= simple_form_for [ @user, @salon ] do |f| %>
+        <%= f.input :name,
+            label: 'The salon`s name',
+            required: true %>
+        <%= f.input :description,
+            label: 'Add a description for your salon',
+            required: true %>
+        <%= f.input :address, 
+            label: 'Add the address of the salon', 
+            required: true,
+            hint: '48, Rua Augusto Perreira, Madureira, Rio de Janeiro' %>
+        <%= f.input :photo, 
+            label: 'Add a photo',
+            required: false,
+            as: :file,
+            hint: "You can register your salon with no photo" %>
+        <%= f.input :photos, 
+            label: 'Add a gallery of pictures',
+            required: false,
+            as: :file,
+            input_html: { multiple: true },
+            hint: "You can register your salon with no gallery" %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <% if current_user.id === 1 %>
+          <%= f.submit "Register your salon", class: 'sign' %>
+        <% else %>
+           <%= link_to "No action for this", '/', class: 'sign' %>
+        <% end %>
+      <% end %>
+      <%= link_to "Back", '/', class: 'sign' %>
+    </div>
+  </div>
+</div>

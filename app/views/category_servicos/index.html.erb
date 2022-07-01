@@ -1,0 +1,31 @@
+<div class = "banner-home-page">
+  <div class="container">
+    <h5>Here are all the services you have registered.</h5>
+      <% if @category_servicos.length > 0 %>
+        <% @category_servicos.each do |category_servico| %>
+          <div class="card-agendamento">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5><%= category_servico.name %></h5>
+                <h5><%= category_servico.description %></h5>
+                <h5><%= category_servico.price %></h5>
+              </div>
+              <div>
+                <%= link_to "Edit Service", edit_salon_category_servico_path(salon_id: @salon.id, id: category_servico.id ), class: "nav-link" %>
+                <%= link_to "Delete Service", 
+                salon_category_servico_path(salon_id: @salon.id, id: category_servico.id ), 
+                method: :delete, 
+                :remote => true,
+                data: { confirm: "Are you sure?" },
+                class: "nav-link" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <h6>No services registered.</h6>
+      <% end %>
+      <%= link_to "Add new services", new_salon_category_servico_path(salon_id: @salon.id), class: "btn btn-primary" %>
+      <%= link_to "Back", user_salons_path(current_user.id), class: "btn btn-primary" %>
+  </div>
+</div>

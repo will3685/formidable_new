@@ -1,0 +1,26 @@
+<div class="banner-home-page">
+  <div class="container">
+   <h5>Register the service offer by the salon</h5>
+      <%= simple_form_for [ @salon, @category_servico ] do |f| %>
+        <%= f.input :servico_id,
+          collection: @servicos,
+          label: 'Select the service category',
+          required: true %>  
+        <%= f.input :name,
+          label: 'Name of the service',
+          required: true %>
+        <%= f.input :description,
+          label: 'Description of the service',
+          required: true %>
+        <%= f.input :price,
+          as: :currency,
+          label: 'Price of the service',
+          required: true %>
+
+      <%= f.hidden_field :salon_id, value: @salon.id %> 
+      <%= f.submit "Register service", class: "btn btn-primary"%>
+      <%= link_to "Cancel", user_salons_path(current_user.id), class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+</div>

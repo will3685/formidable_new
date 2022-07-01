@@ -1,0 +1,34 @@
+<div class = "banner-home-page">
+  <div class="container">
+      <h5>Your registered salon</h5>
+        <% @salons.each do |salon| %>
+          <div class="card-agendamento">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h5><%= salon.name %></h5>
+                <h5><%= salon.description %></h5>
+              </div>
+              <div class="d-flex">
+                <%= link_to "View Salon", salon_path(id: salon.id), class: "nav-link" %>
+                <%= link_to "Edit Salon", edit_user_salon_path(user_id: current_user.id,id: salon.id), class: "nav-link" %>
+                <%= link_to "Show Services", salon_category_servicos_path(salon_id: salon.id),  class: "nav-link" %>
+              </div>
+            </div>
+            <% if salon.categories.length > 0 %>
+              <h6>Categories of this salon</h6>
+              <% salon.categories.each do |category| %>
+                <h6><%= category.name %></h6>
+              <% end %>
+            <% else%>
+              <h6>No category registered</h6>
+            <% end %>
+            <%= link_to "Add new Category", new_salon_salon_category_path(salon_id: salon.id), class: "nav-link" %>
+            <%= link_to "Add new service", new_salon_category_servico_path(salon_id: salon.id), class: "nav-link" %>
+        </div>
+        <% end %>
+      <% if current_user.id === 1 %>
+        <%= link_to "Add new Salon", new_user_salon_path(user_id: current_user.id), class: "nav-link" %>
+      <% end %>
+  
+  </div>
+</div>
